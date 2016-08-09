@@ -1,0 +1,1404 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--<?xml-stylesheet type="text/xsl" href="E:\Bin\test.xsl"?>-->
+<Configuration>
+	<Settings>
+    <DB2Shadowx>http://20.198.145.31/DB2Shadow/DB2Proxy.asp</DB2Shadowx>
+    <DB2Shadow>http://172.20.192.251/DB2Shadow/DB2ShadowServer.asp</DB2Shadow>
+    <!--DB2Shadow>http://172.20.193.100/DB2Shadow/DB2ShadowServer.asp</DB2Shadow-->
+	</Settings>
+	<Parameters>
+		<SchemeId ProvidedByInvoker="Y"/>
+		<MasterCompanyNumber ProvidedByInvoker="Y"/>
+		<PolicySymbolCode ProvidedByInvoker="Y"/>
+		<CountryNumber ProvidedByInvoker="N">44</CountryNumber>
+	</Parameters>
+	<TableGroup name="Scheme_tables">
+<!--MCN - Common tables Starts-->		
+		<Table name="CLIENT_UCT2-EMP_TYPE_CODE_V">
+				<TableView id="CLIENT_UCT2">
+					<Events>
+						<Event name="MasterCompNbrChanged"/>
+					</Events>
+					<Query_Where>CICU_TYPE1_CD = '%MASTER_COMPANY_NBR%' and CICU_VIEW_NM = 'EMP_TYPE_CODE_V'</Query_Where>
+					<Query_OrderBy>CICU_TYPE1_CD ASC</Query_OrderBy>
+				</TableView>
+		</Table>
+		<Table name="INSURER_LIT">
+			<TableView id="INSURER_LIT">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="ORIGIN_CD_LIT">
+			<TableView id="ORIGIN_CD_LIT">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PAL_AUDIT_LOG_LIT">
+			<TableView id="PAL_AUDIT_LOG_LIT">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="POL_LINE_OF_BUS">
+			<TableView id="POL_LINE_OF_BUS">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%' and LOB_CD='%LOB_CD%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_DISCOUNT_LIT">
+			<TableView id="PRM_DISCOUNT_LIT">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%' and INSURANCE_LINE_CD = '%LOB_CD%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="TARGET_IF_SYS">
+			<TableView id="TARGET_IF_SYS">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%' and LOB_CD='%LOB_CD%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="UW_SPT_LOSS_TYPE">
+			<TableView id="UW_SPT_LOSS_TYPE">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%' and LOB_CD='%LOB_CD%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="UW_SPT_RULE_DES">
+			<TableView id="UW_SPT_RULE_DES">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%' and INSURANCE_LINE_CD = '%LOB_CD%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT1-POL_MCO_LIT_V">
+			<TableView id="PRM_UCT1">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE1_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID = 'POL_MCO_LIT_V'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE1_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT2-PPM_DESC_V">
+			<TableView id="PRM_UCT2">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE1_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID = 'PPM_DESC_V'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE1_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT3-PSL_COVERAGE_DES_V">
+			<TableView id="PRM_UCT3">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE2_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID = 'PSL_COVERAGE_DES_V' and PUCT_TYPE1_CD = '%LOB_CD%'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE2_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT3-POL_TERM_LIT_V">
+			<TableView id="PRM_UCT3">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE3_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID = 'POL_TERM_LIT_V' and PUCT_TYPE1_CD = '%LOB_CD%'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE3_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT3-POL_ACTIVITY_LIT_V">
+			<TableView id="PRM_UCT3">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE3_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID = 'POL_ACTIVITY_LIT_V' and PUCT_TYPE1_CD='%LOB_CD%'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE3_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT3-PRM_OVR_REA_LIT_V">
+			<TableView id="PRM_UCT3">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE3_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID = 'PRM_OVR_REA_LIT_V'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE3_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+<!--MCN - Common tables Ends-->
+<!--MCN - Travel tables Starts-->
+		<Table name="PRM_UCT3-TR_MED_DECISION_V">
+			<TableView id="PRM_UCT3">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE3_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID = 'TR_MED_DECISION_V'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE3_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+<!--MCN - Travel tables Ends-->
+<!--MCN - Household tables Strats-->
+		<Table name="DWL_COV_ENT_ITM">
+			<TableView id="DWL_COV_ENT_ITM">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%' and INSURANCE_LINE_CD = '%LOB_CD%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="DWL_PDV_LIT">
+			<TableView id="DWL_PDV_LIT">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%' and INSURANCE_LINE_CD = '%LOB_CD%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="UNOCCUPIED_DAYS">
+			<TableView id="UNOCCUPIED_DAYS">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%' and '%LOB_CD%' = 'HP'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT2-DWL_FLOOD_HST_V">
+			<TableView id="PRM_UCT2">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE1_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID ='DWL_FLOOD_HST_V' and '%LOB_CD%'='HP'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE1_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+				<Table name="PRM_UCT2-DWL_SDC_HST_LIT_V">
+			<TableView id="PRM_UCT2">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE1_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID ='DWL_SDC_HST_LIT_V' and '%LOB_CD%'='HP'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE1_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT2-DWL_LET_LIT_V">
+			<TableView id="PRM_UCT2">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE1_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID ='DWL_LET_LIT_V' and '%LOB_CD%'='HP'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE1_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT2-DWL_TYPE_LIT_V">
+			<TableView id="PRM_UCT2">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE2_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID ='DWL_TYPE_LIT_V' and '%LOB_CD%'='HP'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE2_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT2-UNOCCUPIED_LIT_V">
+			<TableView id="PRM_UCT2">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE2_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID ='UNOCCUPIED_LIT_V' and '%LOB_CD%'='HP'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE2_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT2-OWNER_TYPE_LIT_V">
+			<TableView id="PRM_UCT2">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE2_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID ='OWNER_TYPE_LIT_V' and '%LOB_CD%'='HP'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE2_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT2-ROOF_TYPE_LIT_V">
+			<TableView id="PRM_UCT2">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE2_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID ='ROOF_TYPE_LIT_V' and '%LOB_CD%'='HP'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE2_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT2-WALL_CNS_TYP_LIT_V">
+			<TableView id="PRM_UCT2">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE2_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID ='WALL_CNS_TYP_LIT_V' and '%LOB_CD%'='HP'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE2_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT2-PDV_CATEGORY_LIT_V">
+			<TableView id="PRM_UCT2">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE2_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID ='PDV_CATEGORY_LIT_V' and '%LOB_CD%'='HP'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE2_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT2-DWL_SMOKER_LIT_V">
+			<TableView id="PRM_UCT2">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE1_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID ='DWL_SMOKER_LIT_V' and '%LOB_CD%'='HP'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE1_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT2-SPC_PEBE_TYP_LIT_V">
+			<TableView id="PRM_UCT2">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE2_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID ='SPC_PEBE_TYP_LIT_V' and '%LOB_CD%'='HP'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE2_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+				<Table name="PRM_UCT2-SPC_VAL_TYP_LIT_V">
+			<TableView id="PRM_UCT2">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE1_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID ='SPC_VAL_TYP_LIT_V' and '%LOB_CD%'='HP'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE1_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT2-STATE_REPAIR_LIT_V">
+			<TableView id="PRM_UCT2">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE1_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID ='STATE_REPAIR_LIT_V' and '%LOB_CD%'='HP'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE1_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT3-DWL_RES_USE_V">
+			<TableView id="PRM_UCT3">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>PUCT_TYPE3_CD = '%MASTER_COMPANY_NBR%' and PUCT_TABLE_ID ='DWL_RES_USE_V' and '%LOB_CD%'='HP'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE3_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+<!--MCN - Household tables Ends-->
+<!--MCN - Oracle tables Starts-->
+				<Table name="NPA_OR_GL_ACCNT">
+			<TableView id="NPA_OR_GL_ACCNT">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+			<Table name="NPA_OR_PMT_MTHD">
+			<TableView id="NPA_OR_PMT_MTHD">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT9-COMM_INTF_DTA_V">
+			<TableView id="PRM_UCT9">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>UCT9_KEY Like '%MASTER_COMPANY_NBR%%' and PUCT_TABLE_ID='COMM_INTF_DTA_V'</Query_Where>
+				<Query_OrderBy>UCT9_KEY ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT9-POL_BIL_INTF_DTA_V">
+			<TableView id="PRM_UCT9">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>UCT9_KEY Like '%MASTER_COMPANY_NBR%%' and PUCT_TABLE_ID='POL_BIL_INTF_DTA_V'</Query_Where>
+				<Query_OrderBy>UCT9_KEY ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+<!--MCN - Oracle tables Ends-->
+<!--Product - Common tables Starts-->
+		<Table name="DSC_USE_CD_LIT">
+			<TableView id="DSC_USE_CD_LIT">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%' and LOB_CD ='%LOB_CD%' and POL_SYMBOL_CD  = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="DSC_REA_LIT">
+			<TableView id="DSC_REA_LIT">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%' and LOB_CD ='%LOB_CD%' and POL_SYMBOL_CD  = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+    <!--Table name="LEGAL_DAYS_NOTICE">
+			<TableView id="LEGAL_DAYS_NOTICE">
+				<Events>
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%' and LOB_CD ='%LOB_CD%' and POL_SYMBOL_CD  = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table-->
+		<Table name="MTA_TRAN_DTL_TYPE">
+			<TableView id="MTA_TRAN_DTL_TYPE">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%' and POL_SYMBOL_CD  = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="NCD_ACCEPTED_LIT">
+			<TableView id="NCD_ACCEPTED_LIT">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%' and POL_SYMBOL_CD  = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PB_DESCRIPTION">
+			<TableView id="PB_DESCRIPTION">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<!--<Event name="MasterCompNbrChanged"/>-->
+				</Events>
+				<Query_Where>POL_SYMBOL_CD  = '%PRODUCT_CD%' and LOB_CD ='%LOB_CD%'</Query_Where>
+				<Query_OrderBy>POL_SYMBOL_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="POL_SYMBOL_LIT">
+			<TableView id="POL_SYMBOL_LIT">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR  = '%MASTER_COMPANY_NBR%' and LOB_CD ='%LOB_CD%' and POL_SYMBOL_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="RISK_TYPE">
+			<TableView id="RISK_TYPE">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>POL_SYMBOL_CD  = '%PRODUCT_CD%' and MASTER_COMPANY_NBR  = '%MASTER_COMPANY_NBR%' and LOB_CD ='%LOB_CD%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT1-LOCKBOX_DSP_OCR_V">
+			<TableView id="PRM_UCT1">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<!--<Event name="MasterCompNbrChanged"/>-->
+				</Events>
+				<Query_Where>PUCT_TYPE1_CD  = '%PRODUCT_CD%' and PUCT_TABLE_ID  = 'LOCKBOX_DSP_OCR_V'</Query_Where>
+				<Query_OrderBy>PUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PM_DESCRIPTION">
+			<TableView id="PM_DESCRIPTION">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<!--<Event name="MasterCompNbrChanged"/>-->
+				</Events>
+				<Query_Where>POL_SYMBOL_CD  = '%PRODUCT_CD%' and LOB_CD  = '%LOB_CD%'</Query_Where>
+				<Query_OrderBy>POL_SYMBOL_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT1-PRM_WEB_MAX_QTE_V">
+			<TableView id="PRM_UCT1">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<!--<Event name="MasterCompNbrChanged"/>-->
+				</Events>
+				<Query_Where>PUCT_TYPE1_CD  = '%PRODUCT_CD%' and PUCT_TABLE_ID  = 'PRM_WEB_MAX_QTE_V'</Query_Where>
+				<Query_OrderBy>PUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT3-PRINT_PREFIX_V">
+			<TableView id="PRM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+					<!--<Event name="MasterCompNbrChanged"/>-->
+				</Events>
+				<Query_Where>PUCT_TABLE_ID  = 'PRINT_PREFIX_V' and PUCT_TYPE1_CD  = '%LOB_CD%' and PUCT_TYPE2_CD='%PRODUCT_CD%' and PUCT_TYPE3_CD='%SCHEME_ID%'</Query_Where>
+				<Query_OrderBy>PUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+<!--Product - Common tables Ends-->
+<!--Product - Travel tables Starts-->
+		<Table name="TR_ANN_HELX_REG_V">
+			<TableView id="TR_ANN_HELX_REG_V">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<!--<Event name="MasterCompNbrChanged"/>-->
+				</Events>
+				<Query_Where>LOB_CD  = '%LOB_CD%' and POL_SYMBOL_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>POL_SYMBOL_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+<!--Product - Travel tables Ends-->
+<!--Product - Household tables Starts-->
+	<Table name="DWL_EXT_COV_DES">
+			<TableView id="DWL_EXT_COV_DES">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD  = '%LOB_CD%' and POL_SYMBOL_CD ='%PRODUCT_CD%' and MASTER_COMPANY_NBR  = '%MASTER_COMPANY_NBR%'</Query_Where>
+				<Query_OrderBy>POL_SYMBOL_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT_BP-DWL_RES_USE_BP_V">
+			<TableView id="PRM_UCT_BP">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<!--<Event name="MasterCompNbrChanged"/>-->
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD  = '%LOB_CD%' and POL_SYMBOL_CD ='%PRODUCT_CD%' and PUCT_TABLE_ID ='DWL_RES_USE_BP_V'</Query_Where>
+				<Query_OrderBy>POL_SYMBOL_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="UW_COV_TYPE_BP">
+			<TableView id="UW_COV_TYPE_BP">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR  = '%MASTER_COMPANY_NBR%' and INSURANCE_LINE_CD = '%LOB_CD%'and POL_SYMBOL_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>POL_SYMBOL_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+<!--Product - Household tables Ends-->
+<!--Product - Motor tables Starts-->
+		<Table name="NCD_PROTECT_LIT_V">
+			<TableView id="NCD_PROTECT_LIT_V">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR  = '%MASTER_COMPANY_NBR%' and POL_SYMBOL_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>POL_SYMBOL_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PA_ANN_MILE_BP_V">
+			<TableView id="PA_ANN_MILE_BP_V">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<!--<Event name="MasterCompNbrChanged"/>-->
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD  = '%LOB_CD%' and POL_SYMBOL_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>POL_SYMBOL_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PA_ANN_MILEAGE_V">
+			<TableView id="PA_ANN_MILEAGE_V">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR  = '%MASTER_COMPANY_NBR%' and POL_SYMBOL_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>POL_SYMBOL_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PA_BODY_STYLE_L_V">
+			<TableView id="PA_BODY_STYLE_L_V">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR  = '%MASTER_COMPANY_NBR%' and POL_SYMBOL_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>POL_SYMBOL_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PA_DRV_CRE_LIT_V">
+			<TableView id="PA_DRV_CRE_LIT_V">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR  = '%MASTER_COMPANY_NBR%' and POL_SYMBOL_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>POL_SYMBOL_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PA_MAKE_LIT_V">
+			<TableView id="PA_MAKE_LIT_V">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR  = '%MASTER_COMPANY_NBR%' and POL_SYMBOL_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>POL_SYMBOL_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PA_SEC_DEV_LIT_V">
+			<TableView id="PA_SEC_DEV_LIT_V">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR  = '%MASTER_COMPANY_NBR%' and POL_SYMBOL_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>POL_SYMBOL_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PA_VEH_OWNER_LIT_V">
+			<TableView id="PA_VEH_OWNER_LIT_V">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR  = '%MASTER_COMPANY_NBR%' and POL_SYMBOL_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>POL_SYMBOL_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PA_VEH_TYPE_LIT_V">
+			<TableView id="PA_VEH_TYPE_LIT_V">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR  = '%MASTER_COMPANY_NBR%' and POL_SYMBOL_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>POL_SYMBOL_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PA_VEH_USE_BP_V">
+			<TableView id="PA_VEH_USE_BP_V">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR  = '%MASTER_COMPANY_NBR%' and POL_SYMBOL_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>POL_SYMBOL_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PA_VEH_USE_LIT_V">
+			<TableView id="PA_VEH_USE_LIT_V">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR  = '%MASTER_COMPANY_NBR%' and POL_SYMBOL_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>POL_SYMBOL_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT3-PARKING_LOC_LIT_V">
+			<TableView id="PRM_UCT3">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<!--<Event name="MasterCompNbrChanged"/>-->
+				</Events>
+				<Query_Where>PUCT_TABLE_ID  = 'PARKING_LOC_LIT_V' and PUCT_TYPE3_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>PUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT3-SEC_SYS_GRP_LIT_V">
+			<TableView id="PRM_UCT3">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<!--<Event name="MasterCompNbrChanged"/>-->
+				</Events>
+				<Query_Where>PUCT_TABLE_ID  = 'SEC_SYS_GRP_LIT_V' and PUCT_TYPE2_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>PUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT3-TYPE_TERMS_LIT_V">
+			<TableView id="PRM_UCT3">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<!--<Event name="MasterCompNbrChanged"/>-->
+				</Events>
+				<Query_Where>PUCT_TABLE_ID  = 'TYPE_TERMS_LIT_V' and PUCT_TYPE2_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>PUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT3-VEH_KEEPER_LIT_V">
+			<TableView id="PRM_UCT3">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<!--<Event name="MasterCompNbrChanged"/>-->
+				</Events>
+				<Query_Where>PUCT_TABLE_ID  = 'VEH_KEEPER_LIT_V' and PUCT_TYPE2_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>PUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT3-VEH_MOD_TYPE_COD_V">
+			<TableView id="PRM_UCT3">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<!--<Event name="MasterCompNbrChanged"/>-->
+				</Events>
+				<Query_Where>PUCT_TABLE_ID  = 'VEH_MOD_TYPE_COD_V' and PUCT_TYPE3_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>PUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT3-VEH_TEMP_REA_LIT_V">
+			<TableView id="PRM_UCT3">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<!--<Event name="MasterCompNbrChanged"/>-->
+				</Events>
+				<Query_Where>PUCT_TABLE_ID  = 'VEH_TEMP_REA_LIT_V' and PUCT_TYPE3_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>PUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT3-DRV_LIC_YRS_LIT_V">
+			<TableView id="PRM_UCT3">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<!--<Event name="MasterCompNbrChanged"/>-->
+				</Events>
+				<Query_Where>PUCT_TABLE_ID  = 'DRV_LIC_YRS_LIT_V' and PUCT_TYPE2_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>PUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT3-DRV_STATUS_LIT_V">
+			<TableView id="PRM_UCT3">
+				<Events>
+					<!--<Event name="SchemeIdChanged"/>-->
+					<Event name="PolicySymbolCodeChanged"/>
+					<!--<Event name="MasterCompNbrChanged"/>-->
+				</Events>
+				<Query_Where>PUCT_TABLE_ID  = 'DRV_STATUS_LIT_V' and PUCT_TYPE2_CD ='%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>PUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+<!--Product - Motor tables Ends-->
+<!--Scheme Data set up Strats-->				
+		<Table name="SHM_PRODUCT">
+			<TableView id="SHM_PRODUCT">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID= '%SCHEME_ID%' and PRODUCT_CD= '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="POL_BIL_METHOD">
+			<TableView id="POL_BIL_METHOD">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID = '%SCHEME_ID%' and PRODUCT_CD = '%PRODUCT_CD%' and EFFECTIVE_DT = (SELECT MAX(EFFECTIVE_DT) FROM %REGION%.POL_BIL_METHOD WHERE PRODUCT_CD = A.PRODUCT_CD AND SCHEME_ID = A.SCHEME_ID AND EFFECTIVE_TYPE_CD = A.EFFECTIVE_TYPE_CD AND BILL_PLAN_CODE = A.BILL_PLAN_CODE and HISTORY_VLD_NBR = 0)</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+<!--Scheme Data set up Ends-->
+<!--Scheme - Common tables Strats-->
+		<Table name="SHM_CONTRACT">
+			<TableView id="SHM_CONTRACT">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID= '%SCHEME_ID%' and MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%' and EFFECTIVE_DT = ((SELECT MAX(EFFECTIVE_DT) FROM %REGION%.SHM_CONTRACT WHERE SCHEME_ID = A.SCHEME_ID AND HISTORY_VLD_NBR = 0))</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_AGENCY">
+			<TableView id="SHM_AGENCY">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID= '%SCHEME_ID%'</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_CROSS_SELL">
+			<TableView id="SHM_CROSS_SELL">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID= '%SCHEME_ID%'</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+    <!--Table name="PRINT_LOCATION_LIT">
+			<TableView id="PRINT_LOCATION_LIT">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					-<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID= '%SCHEME_ID%' and MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%'</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table-->
+		<Table name="PRM_UCT1-SCHEME_TYPE_LIT_V">
+			<TableView id="PRM_UCT1">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<!--<Event name="PolicySymbolCodeChanged"/>-->
+					<!--<Event name="MasterCompNbrChanged"/>-->
+				</Events>
+				<Query_Where>PUCT_TYPE1_CD= '%SCHEME_ID%' and PUCT_TABLE_ID = 'SCHEME_TYPE_LIT_V'</Query_Where>
+				<Query_OrderBy>PUCT_TYPE1_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+<!--Scheme - Common tables Ends-->
+<!--Scheme - Travel tables Starts-->
+		<Table name="SHM_EXCL_MED_CND">
+			<TableView id="SHM_EXCL_MED_CND">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID = '%SCHEME_ID%' and POL_SYMBOL_CD = '%PRODUCT_CD%' and LOB_CD='%LOB_CD%'</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_SPT_QUESTIONS">
+			<TableView id="SHM_SPT_QUESTIONS">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID= '%SCHEME_ID%' and POL_SYMBOL_CD= '%PRODUCT_CD%' and INSURANCE_LINE_CD = '%LOB_CD%'</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_SW_PRD_DFLT">
+			<TableView id="SHM_SW_PRD_DFLT">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SOURCE_SCHEME_CD = '%SCHEME_ID%' and SOURCE_PRODUCT_CD= '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SOURCE_PRODUCT_CD ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<!--<Table name="SHM_EXCL_MED_CND">
+			<TableView id="SHM_EXCL_MED_CND">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID = '%SCHEME_ID%' and LOB_CD = '%LOB_CD%' and POL_SYMBOL_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>-->
+		<Table name="SHM_COVER">
+			<TableView id="SHM_COVER">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID= '%SCHEME_ID%' and PRODUCT_CD= '%PRODUCT_CD%'  AND EFFECTIVE_DT   = (SELECT MAX(EFFECTIVE_DT) FROM %REGION%.SHM_COVER WHERE PRODUCT_CD = A.PRODUCT_CD AND SCHEME_ID = A.SCHEME_ID AND SHM_COV_CD = A.SHM_COV_CD AND HISTORY_VLD_NBR = 0)</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_COV_LIT">
+			<TableView id="SHM_COV_LIT">
+				<Events>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%' and INSURANCE_LINE_CD  = '%LOB_CD%'</Query_Where>
+				<Query_OrderBy>MASTER_COMPANY_NBR ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_TRV_ENT_ITEM">
+			<TableView id="SHM_TRV_ENT_ITEM">
+				<Events>
+					<!--<Event name="MasterCompNbrChanged"/>-->
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID = '%SCHEME_ID%' and POL_SYMBOL_CD  = '%PRODUCT_CD%' and INSURANCE_LINE_CD  = '%LOB_CD%'</Query_Where>
+				<Query_OrderBy></Query_OrderBy>
+			</TableView>
+		</Table>
+    <!--Table name="SHM_CAMPAIGN">
+			<TableView id="SHM_CAMPAIGN">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID= '%SCHEME_ID%' and PRODUCT_CD= '%PRODUCT_CD%' AND EFFECTIVE_DT   = (SELECT MAX(EFFECTIVE_DT) FROM %REGION%.SHM_CAMPAIGN WHERE CAMPAIGN_REF_ID = A.CAMPAIGN_REF_ID AND SCHEME_ID = A.SCHEME_ID AND PRODUCT_CD = A.PRODUCT_CD AND HISTORY_VLD_NBR = 0)</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table-->
+		<Table name="CM_2_XCD_PRD_XRF">
+			<TableView id="CM_2_XCD_PRD_XRF">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>XCD_SCHEME_ID= '%SCHEME_ID%' and XCD_PRODUCT_CD= '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>XCD_SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_PRODUCT_INFO">
+			<TableView id="SHM_PRODUCT_INFO">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID = '%SCHEME_ID%' and PRODUCT_CD = '%PRODUCT_CD%' and EFFECTIVE_DT = (SELECT MAX(EFFECTIVE_DT) from %REGION%.SHM_PRODUCT_INFO where A.SCHEME_ID = SCHEME_ID and A.PRODUCT_CD = PRODUCT_CD and A.COVER_CD = COVER_CD and A.INFO_TYP_CD = INFO_TYP_CD)</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_UCT2-SHM_TR_AREA_DEST_V">
+			<TableView id="SHM_UCT2">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<!--<Event name="PolicySymbolCodeChanged"/>-->
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD = '%LOB_CD%' and SUCT_TABLE_ID = 'SHM_TR_AREA_DEST_V' and SUCT_TYPE1_CD = '%SCHEME_ID%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<!--<Table name="SHM_UCT2-SHM_TR_AREA_DEST_V">
+			<TableView id="SHM_UCT2">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD = '%LOB_CD%' and SUCT_TABLE_ID = 'SHM_TR_AREA_DEST_V' and SUCT_TYPE1_CD = '%SCHEME_ID%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>-->
+		<Table name="POL_REA_AMD_DES">
+			<TableView id="POL_REA_AMD_DES">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+					<Event name="MasterCompNbrChanged"/>
+				</Events>
+				<Query_Where>MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%' and SCHEME_ID = '%SCHEME_ID%' and POL_SYMBOL_CD = '%PRODUCT_CD%' and LOB_CD = '%LOB_CD%'</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<!--<Table name="PRM_UCT3-PRINT_PREFIX_V">
+			<TableView id="PRM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>PUCT_TABLE_ID='PRINT_PREFIX_V' and PUCT_TYPE1_CD ='%LOB_CD%' and PUCT_TYPE3_CD = '%SCHEME_ID%' and PUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>PUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>-->
+		<Table name="SHM_UCT3-SHM_CONV_PREFIX_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SUCT_TABLE_ID='SHM_CONV_PREFIX_V' and INSURANCE_LINE_CD ='%LOB_CD%' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_UCT3-SHM_TRAVEL_AREA_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SUCT_TABLE_ID='SHM_TRAVEL_AREA_V' and INSURANCE_LINE_CD ='%LOB_CD%' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_UCT3-SHM_TRV_DURATION_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SUCT_TABLE_ID='SHM_TRV_DURATION_V' and INSURANCE_LINE_CD ='%LOB_CD%' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_UCT3-SHM_TRV_MED_QUES_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SUCT_TABLE_ID='SHM_TRV_MED_QUES_V' and INSURANCE_LINE_CD ='%LOB_CD%' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+<!--Scheme - Travel tables Ends-->
+<!--Scheme - Household tables Strats-->
+		<Table name="SHM_COV_EXCEPT">
+			<TableView id="SHM_COV_EXCEPT">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID = '%SCHEME_ID%' and PRODUCT_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_COV_OPTION">
+			<TableView id="SHM_COV_OPTION">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID = '%SCHEME_ID%' and PRODUCT_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_UCT2-PARTNER_XFR_PRD_V">
+			<TableView id="SHM_UCT2">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD = '%LOB_CD%' and SUCT_TABLE_ID ='PARTNER_XFR_PRD_V' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<!--<Table name="SHM_UCT3-SHM_CONV_PREFIX_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD = '%LOB_CD%' and SUCT_TABLE_ID ='SHM_CONV_PREFIX_V' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>-->
+		<Table name="SHM_UCT3-SHM_LET_PRP_LIT_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD = '%LOB_CD%' and SUCT_TABLE_ID ='SHM_LET_PRP_LIT_V' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_UCT3-SHM_PROD_SLYURL_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD = '%LOB_CD%' and SUCT_TABLE_ID ='SHM_PROD_SLYURL_V' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="DWL_XCS_AMOUNT_LIT">
+			<TableView id="DWL_XCS_AMOUNT_LIT">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID = '%SCHEME_ID%' and POL_SYM_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="DWL_XCS_TYPE_LIT">
+			<TableView id="DWL_XCS_TYPE_LIT">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID = '%SCHEME_ID%' and POL_SYM_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="THIRD_PARTY_FEES">
+			<TableView id="THIRD_PARTY_FEES">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID = '%SCHEME_ID%' and PRODUCT_CD = '%PRODUCT_CD%' AND EFFECTIVE_DATE = (SELECT MAX(EFFECTIVE_DATE) FROM %REGION%.THIRD_PARTY_FEES WHERE PRODUCT_CD = A.PRODUCT_CD AND SCHEME_ID = A.SCHEME_ID AND COVERAGE_CD = A.COVERAGE_CD AND VARIABLE_CD = A.VARIABLE_CD AND COV_OPT_TYP_CD = A.COV_OPT_TYP_CD)</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+<!--Scheme - Household tables Ends-->
+<!--Scheme - Motor tables Strats-->
+		<Table name="POL_XCS_TYPE_LIT">
+			<TableView id="POL_XCS_TYPE_LIT">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID = '%SCHEME_ID%' and XCS_POL_SYM_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRM_UCT3-VEH_HAZ_GOOD_LIT_V">
+			<TableView id="PRM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>PUCT_TABLE_ID = 'VEH_HAZ_GOOD_LIT_V' and PUCT_TYPE1_CD = '%SCHEME_ID%' and PUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>PUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_UCT3-SHM_BUS_TRIP_FRQ_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD = '%LOB_CD%' and SUCT_TABLE_ID = 'SHM_BUS_TRIP_FRQ_V' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_UCT3-SHM_CUM_BUS_DIST_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD = '%LOB_CD%' and SUCT_TABLE_ID = 'SHM_CUM_BUS_DIST_V' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_UCT3-SHM_CUM_FRQ_LIT_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD = '%LOB_CD%' and SUCT_TABLE_ID = 'SHM_CUM_FRQ_LIT_V' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+				<Table name="SHM_UCT3-SHM_CUM_FRQ_WKLY_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD = '%LOB_CD%' and SUCT_TABLE_ID = 'SHM_CUM_FRQ_WKLY_V' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_UCT3-SHM_CUM_PAS_LIT_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD = '%LOB_CD%' and SUCT_TABLE_ID = 'SHM_CUM_PAS_LIT_V' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_UCT3-SHM_CUM_TIME_LIT_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD = '%LOB_CD%' and SUCT_TABLE_ID = 'SHM_CUM_TIME_LIT_V' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_UCT3-SHM_CUR_COV_LIT_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD = '%LOB_CD%' and SUCT_TABLE_ID = 'SHM_CUR_COV_LIT_V' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+				<Table name="SHM_UCT3-SHM_DRV_FRQ_LIT_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD = '%LOB_CD%' and SUCT_TABLE_ID = 'SHM_DRV_FRQ_LIT_V' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_UCT3-SHM_OCC_ENTERTN_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD = '%LOB_CD%' and SUCT_TABLE_ID = 'SHM_OCC_ENTERTN_V' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_UCT3-SHM_OCC_SPORTS_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD = '%LOB_CD%' and SUCT_TABLE_ID = 'SHM_OCC_SPORTS_V' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_UCT3-SHM_ROAD_TYP_LIT_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD = '%LOB_CD%' and SUCT_TABLE_ID = 'SHM_ROAD_TYP_LIT_V' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="SHM_UCT3-SHM_TERMS_IMP_V">
+			<TableView id="SHM_UCT3">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>INSURANCE_LINE_CD = '%LOB_CD%' and SUCT_TABLE_ID = 'SHM_TERMS_IMP_V' and SUCT_TYPE1_CD = '%SCHEME_ID%' and SUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SUCT_TABLE_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="VEH_XCS_AMOUNT_LIT">
+			<TableView id="VEH_XCS_AMOUNT_LIT">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID = '%SCHEME_ID%' and XCS_POL_SYM_CD = '%PRODUCT_CD%' and EFFECTIVE_DT = (SELECT MAX(EFFECTIVE_DT) FROM %REGION%.VEH_XCS_AMOUNT_LIT WHERE XCS_POL_SYM_CD = A.XCS_POL_SYM_CD AND SCHEME_ID = A.SCHEME_ID AND XCS_TYPE_CD = A.XCS_TYPE_CD AND XCS_AMT_ORD_NBR = A.XCS_AMT_ORD_NBR)</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="VEH_XCS_TYPE_LIT">
+			<TableView id="VEH_XCS_TYPE_LIT">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID = '%SCHEME_ID%' and XCS_POL_SYM_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+		<Table name="PRO_PAY_METH_DES">
+			<TableView id="PRO_PAY_METH_DES">
+				<Events>
+					<Event name="SchemeIdChanged"/>
+					<Event name="PolicySymbolCodeChanged"/>
+				</Events>
+				<Query_Where>SCHEME_ID = '%SCHEME_ID%' and PRODUCT_CD = '%PRODUCT_CD%'</Query_Where>
+				<Query_OrderBy>SCHEME_ID ASC</Query_OrderBy>
+			</TableView>
+		</Table>
+<!--Scheme - Motor tables Ends-->
+<!-- Product level entries for drive away schemes starts-->
+    <Table name="PRM_UCT3-VEH_HAZ_LOC_LIT_V">
+      <TableView id="PRM_UCT3">
+        <Events>
+          <Event name="SchemeIdChanged"/>
+          <Event name="PolicySymbolCodeChanged"/>
+        </Events>
+        <Query_Where>PUCT_TABLE_ID='VEH_HAZ_LOC_LIT_V' and PUCT_TYPE1_CD = '%SCHEME_ID%' and PUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+        <Query_OrderBy>PUCT_TYPE3_CD ASC</Query_OrderBy>
+      </TableView>
+    </Table>
+    <Table name="PRM_UCT3-OPEN_DRIVING_LIT_V">
+      <TableView id="PRM_UCT3">
+        <Events>
+          <Event name="SchemeIdChanged"/>
+          <Event name="PolicySymbolCodeChanged"/>
+        </Events>
+        <Query_Where>PUCT_TABLE_ID='OPEN_DRIVING_LIT_V' and PUCT_TYPE1_CD = '%SCHEME_ID%' and PUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+        <Query_OrderBy>PUCT_TYPE3_CD ASC</Query_OrderBy>
+      </TableView>
+    </Table>
+    <Table name="PRM_UCT2-VEH_POL_HOLD_TYPE">
+      <TableView id="PRM_UCT2">
+        <Events>
+          <Event name="SchemeIdChanged"/>
+          <Event name="PolicySymbolCodeChanged"/>
+        </Events>
+        <Query_Where>PUCT_TABLE_ID='VEH_POL_HOLD_TYPE' and PUCT_TYPE1_CD = '%SCHEME_ID%' and PUCT_TYPE2_CD = '%PRODUCT_CD%'</Query_Where>
+        <Query_OrderBy></Query_OrderBy>
+      </TableView>
+    </Table>
+    <Table name="PRINT_LOCATION_LIT ">
+      <TableView id="PRINT_LOCATION_LIT ">
+        <Events>
+          <Event name="SchemeIdChanged"/>
+          <Event name="MasterCompNbrChanged"/>
+        </Events>
+        <Query_Where>MASTER_COMPANY_NBR='%MASTER_COMPANY_NBR%' and SCHEME_ID = '%SCHEME_ID%'</Query_Where>
+        <Query_OrderBy>EFFECTIVE_TYPE_CD,STATUS_CD,DOC_TYPE_CD, PRINT_LOCATION_CD asc</Query_OrderBy>
+      </TableView>
+    </Table>
+    <Table name="PRM_UCT9-CONTACT_EVENTS">
+      <TableView id="PRM_UCT9">
+        <Events>
+          <Event name="SchemeIdChanged"/>
+          <Event name="MasterCompNbrChanged"/>
+          <Event name="PolicySymbolCodeChanged"/>
+        </Events>
+        <Query_Where>PUCT_TABLE_ID = 'CONTACT_EVENTS' and UCT9_KEY like '%MCN=%MASTER_COMPANY_NBR%;%POL_SYM_CD=%PRODUCT_CD%;%SCHEME=%SCHEME_ID%%'</Query_Where>
+        <Query_OrderBy>SUBSTR(UCT9_DATA,1,11) asc</Query_OrderBy>
+      </TableView>
+    </Table>
+    <Table name="LEGAL_DAYS_NOTICE">
+      <TableView id="LEGAL_DAYS_NOTICE">
+        <Events>
+          <Event name="MasterCompNbrChanged"/>
+          <Event name="PolicySymbolCodeChanged"/>
+        </Events>
+        <Query_Where>MASTER_COMPANY_NBR='%MASTER_COMPANY_NBR%' and POL_SYMBOL_CD='%PRODUCT_CD%'</Query_Where>
+        <Query_OrderBy>EFFECTIVE_TYPE_CD, LDN_PROCESS_CD asc</Query_OrderBy>
+      </TableView>
+    </Table>
+    <Table name="HAL_UCT2-CORRESPONDENCE_KICKER">
+      <TableView id="HAL_UCT2">
+        <Events>
+          <Event name="MasterCompNbrChanged"/>
+          <Event name="PolicySymbolCodeChanged"/>
+          <Event name="SchemeIdChanged"/>
+        </Events>
+        <Query_Where>HUC2_ENTRY_KEY_CD like '%MASTER_COMPANY_NBR=%MASTER_COMPANY_NBR%;%POL_SYMBOL_CD=%PRODUCT_CD%;%'</Query_Where>
+        <Query_OrderBy>SUBSTR(HUC2_ENTRY_DTA_TXT,16,17) asc</Query_OrderBy>
+      </TableView>
+    </Table>
+    <Table name="POL_CORRESPONDENCE">
+      <TableView id="POL_CORRESPONDENCE">
+        <Events>
+          <Event name="MasterCompNbrChanged"/>
+          <Event name="PolicySymbolCodeChanged"/>
+          <Event name="SchemeIdChanged"/>
+        </Events>
+        <Query_Where>MASTER_COMPANY_NBR ='%MASTER_COMPANY_NBR%' AND POL_SYMBOL_CD ='%PRODUCT_CD%' AND SCHEME_ID in('%SCHEME_ID%','999')</Query_Where>
+        <Query_OrderBy>LEVEL asc</Query_OrderBy>
+      </TableView>
+    </Table>
+    <!-- Product level entries for drive away schemes ends-->
+    <!-- few other entries missed out - added here. Identified by Gina start-->
+    <Table name="CLIENT_UCT2-MARITAL_STAT_COD_V">
+      <TableView id="CLIENT_UCT2">
+        <Events>
+          <Event name="MasterCompNbrChanged"/>
+        </Events>
+        <Query_Where>CICU_TYPE1_CD = '%MASTER_COMPANY_NBR%' and CICU_VIEW_NM = 'MARITAL_STAT_COD_V'</Query_Where>
+        <Query_OrderBy>CICU_TYPE1_CD ASC</Query_OrderBy>
+      </TableView>
+    </Table>
+    <Table name="CLIENT_UCT2-CLT_CLT_REL_TYPE_V">
+      <TableView id="CLIENT_UCT2">
+        <Events>
+          <Event name="MasterCompNbrChanged"/>
+        </Events>
+        <Query_Where>CICU_TYPE1_CD = '%MASTER_COMPANY_NBR%' and CICU_VIEW_NM = 'CLT_CLT_REL_TYPE_V'</Query_Where>
+        <Query_OrderBy>CICU_TYPE1_CD ASC</Query_OrderBy>
+      </TableView>
+    </Table>
+    <Table name="PRM_UCT2-OCP_GRP_LIT_V">
+      <TableView id="PRM_UCT2">
+        <Events>
+          <Event name="PolicySymbolCodeChanged"/>
+        </Events>
+        <Query_Where>PUCT_TYPE1_CD = '%PRODUCT_CD%' and PUCT_TABLE_ID = 'OCP_GRP_LIT_V'</Query_Where>
+        <Query_OrderBy>PUCT_TYPE2_CD ASC</Query_OrderBy>
+      </TableView>
+    </Table>
+    <Table name="FORM_TAB">
+      <TableView id="FORM_TAB">
+        <Events>
+          <Event name="PolicySymbolCodeChanged"/>
+          <Event name="MasterCompNbrChanged"/>
+        </Events>
+        <Query_Where>POL_SYMBOL_CD = '%PRODUCT_CD%' and MASTER_COMPANY_NBR = '%MASTER_COMPANY_NBR%' and EXPIRATION_DT ='9999-12-31'</Query_Where>
+        <Query_OrderBy>FORM_ID ASC</Query_OrderBy>
+      </TableView>
+    </Table>
+    <Table name="PRINT_BRAND_INFO">
+      <TableView id="PRINT_BRAND_INFO">
+        <Events>
+          <Event name="PolicySymbolCodeChanged"/>
+          <Event name="SchemeIdChanged"/>
+        </Events>
+        <Query_Where>PRINT_BRAND_ID = '%SCHEME_ID%%PRODUCT_CD%' and EXPIRATION_DT = '9999-12-31'</Query_Where>
+        <Query_OrderBy></Query_OrderBy>
+      </TableView>
+    </Table>
+    <!-- few other entries missed out - added here. Identified by Gina end-->
+
+  </TableGroup>
+</Configuration>

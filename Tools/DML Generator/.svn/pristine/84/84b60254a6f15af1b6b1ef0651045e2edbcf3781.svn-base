@@ -1,0 +1,36 @@
+﻿@model DML.Generator.Web.Models.FileUploadViewModel
+@using DML.Generator.Domain
+@if (Model.DMLInfo != null && Model.DMLInfo.Count > 0)
+{ 
+    <input type="submit" name ="Verify" value="Verify" id="Verify"/>
+    foreach (DMLInfo Info in Model.DMLInfo)
+    {
+        <div class="SheetInfo" id="@Info.SheetData.Name">
+            <span class="cellContent">@Info.SheetData.Name</span>
+            <span class="cellContent">@Info.SheetData.TableName</span>
+            <span class="cellContent">@Info.HostDMLName</span>
+            <span class="cellContent">@Info.FEDMLName</span>
+            @if (string.IsNullOrEmpty(Info.HostDMLName) && string.IsNullOrEmpty(Info.FEDMLName))
+            {
+                <span class="warning">Host and FE DML name missing.</span>
+            }
+            
+            @if (string.IsNullOrEmpty(Info.HostDMLName) && !string.IsNullOrEmpty(Info.FEDMLName))
+            {
+                <span class="warning">Host DML name missing.</span>
+            }
+            
+            @if (!string.IsNullOrEmpty(Info.HostDMLName) && string.IsNullOrEmpty(Info.FEDMLName))
+            {
+                <span class="warning">FE DML name missing.</span>
+            }
+            
+            @if (!string.IsNullOrEmpty(Info.HostDMLName) && !string.IsNullOrEmpty(Info.FEDMLName))
+            {
+                <span class="success">Initial verification passed.</span>
+            }
+
+        </div>
+    }
+}
+

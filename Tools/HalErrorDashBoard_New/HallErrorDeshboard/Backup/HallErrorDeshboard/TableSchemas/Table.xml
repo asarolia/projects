@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TableSchema>
+  <TABLE Name="MASTERERROR_V" TableName="MASTERERROR">
+    
+    <COLUMN SqlColName="Guid" ExcelMatchColName="GUID" ExcelColName="LPR NUMBER" DataType="GUID" length="100" Grid="Y" ReadOnly="Y" Required="Y" DuplicateKey="Y" />
+    <COLUMN SqlColName="ReportDate" ExcelMatchColName="ReportDate" ExcelColName="ReportDate" DataType="datetime" ReadOnly="Y" length="50" Grid="Y">
+    </COLUMN>
+    <COLUMN SqlColName="ErrorId" ExcelMatchColName="Error Id" ExcelColName="ErrorId" DataType="varchar" length="300" Grid="Y" ReadOnly="Y" />
+    <COLUMN SqlColName="ErrorText" ExcelMatchColName="Error Text" ExcelColName="ErrorText" DataType="varchar" length="500" Grid="Y" ReadOnly="Y"/>
+    <COLUMN SqlColName="Source" ExcelMatchColName="Source" ExcelColName="Source" DataType="varchar" length="20" Grid="Y" ReadOnly="Y">
+    </COLUMN>
+    <COLUMN SqlColName="Count" ExcelMatchColName="Count" ExcelColName="Count" DataType="int" length="3" Grid="Y">
+    </COLUMN>
+    <COLUMN SqlColName="statustext" ExcelMatchColName="Status" ExcelColName="Status" DataType="varchar" length="30" Grid="Y" INPUT="DROPDOWN"/>    
+    <COLUMN SqlColName="Comment" ExcelMatchColName="Comment" ExcelColName="Comment" DataType="varchar" length="1000" Grid="Y">
+    </COLUMN>    
+  </TABLE> 
+</TableSchema>

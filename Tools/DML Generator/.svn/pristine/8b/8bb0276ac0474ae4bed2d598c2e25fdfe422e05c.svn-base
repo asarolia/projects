@@ -1,0 +1,115 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using DML.Generator.Domain.Abstract;
+using System.Data;
+
+namespace DML.Generator.Domain.DML
+{
+    public class HostDML:AbstractDML
+    {
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HostDML"/> class.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        public HostDML(DataTable dataTable)
+        {
+            this.dataTable = dataTable;
+        }
+
+        /// <summary>
+        /// Host dml date format.
+        /// </summary>
+        private const string DateFormat = "dd.MM.yyyy";
+
+        /// <summary>
+        /// Gets the delete statement.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        /// <returns></returns>
+        protected override string GetDeleteStatement()
+        {
+            StringBuilder dmlString = new StringBuilder();
+            foreach (DataRow row in dataTable.Rows)
+            {
+                dmlString.Append(string.Format("DELETE FROM {0}", dataTable.TableName));
+                dmlString.Append("\r\nWHERE\r\n");
+                foreach (DataColumn column in dataTable.PrimaryKey)
+                {
+                    if (column.DataType == typeof(System.Int32))
+                    {
+                        dmlString.Append(string.Format("{0} = {1}\r\nAND ", column.ColumnName, row[column]));
+                    }
+                    else if (column.DataType == typeof(System.DateTime))
+                    {
+                        string dateInHostFormat = DateTime.Parse(row[column].ToString()).ToString(DateFormat);
+                        dmlString.Append(string.Format("{0} = '{1}'\r\nAND ", column.ColumnName, dateInHostFormat));
+                    }
+                    else
+                    {
+                        dmlString.Append(string.Format("{0} = '{1}'\r\nAND ", column.ColumnName, row[column]));
+                    }
+                }
+
+                dmlString.Remove(dmlString.Length - 4, 4);
+                dmlString.Append(";\r\n\r\n");
+            }
+
+            return dmlString.ToString();
+        }
+
+        /// <summary>
+        /// Gets the host insert DML string.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        /// <returns></returns>
+        protected override string GetInsertStatement()
+        {
+            StringBuilder dmlString = new StringBuilder();
+            foreach (DataRow row in dataTable.Rows)
+            {
+                if (string.Equals(row["Action"].ToString().ToLower(), "add"))
+                {
+                    dmlString.Append(string.Format("INSERT INTO {0}", dataTable.TableName));
+                    dmlString.Append("\r\n(");
+                    foreach (DataColumn column in dataTable.Columns)
+                    {
+                        if (!string.Equals(column.ColumnName, "Action"))
+                        {
+                            dmlString.Append(string.Format("{0} ,\r\n", column.ColumnName));
+                        }
+                    }
+                    dmlString.Remove(dmlString.Length - 4, 4);
+                    dmlString.Append(")\r\nVALUES(\r\n");
+                    foreach (object column in row.ItemArray.Skip(1))
+                    {
+                        if (column.GetType() == typeof(System.DBNull))
+                        {
+                            dmlString.Append(string.Format("{0} ,\r\n", "null"));
+                        }
+                        else if (column.GetType() == typeof(System.Int32))
+                        {
+                            dmlString.Append(string.Format("{0} ,\r\n", column));
+                        }
+                        else if (column.GetType() == typeof(System.DateTime))
+                        {
+                                string dateInHostFormat = DateTime.Parse(column.ToString()).ToString(DateFormat);
+                                dmlString.Append(string.Format("'{0}' ,\r\n", dateInHostFormat));
+                        }
+                        else
+                        {
+                            dmlString.Append(string.Format("'{0}' ,\r\n", column));
+                        }
+                    }
+
+                    dmlString.Remove(dmlString.Length - 4, 4);
+                    dmlString.Append(");\r\n\r\n");
+                }
+            }
+
+            return dmlString.ToString();
+        }
+    }
+}

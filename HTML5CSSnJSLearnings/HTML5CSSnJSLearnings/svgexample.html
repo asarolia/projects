@@ -1,0 +1,50 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SVG learning</title>
+    <link href="styles/style.css" rel="stylesheet" />
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div>
+        <svg xmlns="http://www.w3.org/200/svg" version="1.1" id="mysvg">
+
+            <circle cx="45" cy="50" r="20" stroke="green" fill="green" />
+            <path d="M 100 15 L 100 70" stroke="red" />
+
+        </svg>
+    </div>
+<!-- use of transaformation in SVG -->
+    <div>
+        <svg xmlns="http://www.w3.org/200/svg" version="1.1" id="mysvg">
+
+            <circle cx="45" cy="50" r="20" stroke="green" fill="green" transform="translate(0,30) scale(0.6)"/>
+            <path d="M 100 15 L 100 70" stroke="red" transform="skewX(20)" />
+
+        </svg>
+    </div>
+
+<!-- Use of gradient in SVG -->
+    <div>
+        <svg xmlns="http://www.w3.org/200/svg" version="1.1" id="mysvg">
+
+            <!-- define gradients -->
+            <defs>
+                <linearGradient id="l1" x1="0" y1="0" x2="100" y2="0">
+                    <stop offset=".5" stop-color="green"/>
+                    <stop offset="1.0" stop-color="yellow" />
+                </linearGradient>
+                <radialGradient id="r1" fx=".5" fy=".5">
+                    <stop offset=".3" stop-color="red" />
+                    <stop offset="1.0" stop-color="blue" />
+                </radialGradient>
+            </defs>
+            <circle cx="45" cy="50" r="20" stroke="green" fill="url(#r1)"/>
+            <path d="M 100 15 L 100 70" stroke="red" transform="skewX(20)" />
+
+        </svg>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/MasterPage.master" AutoEventWireup="false" CodeFile="SiteMasterSidebar.master.cs" Inherits="MasterPages_SiteMasterSidebar" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="Head" Runat="Server">
+    <asp:contentplaceholder id="HeadContent" runat="server"></asp:contentplaceholder>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function(){
+            $('#navigation').show(250);
+        });
+    </script>
+
+
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="Body" Runat="Server">
+    <div id="navigation" style="display:none;">
+        <p>
+            <span id="nCloneProposition">Select Source Proposition</span> &#187; 
+            <span id="nDownloadData">Download Proposition Data </span> &#187; 
+            <span id="nChangeProposition">Apply Changes </span> &#187; 
+            <span id="nGenerateExcel">Generate Excel Sheet</span>  
+        </p>
+    </div>
+    <div id="main">
+        <div id="sidebar">
+            <asp:contentplaceholder id="sidebar" runat="server">
+            </asp:contentplaceholder>
+            
+        </div>
+        <div id="content">
+            <asp:contentplaceholder id="bodyContentPlaceholder" runat="server">
+            </asp:contentplaceholder>
+        </div>
+    </div>
+</asp:Content>
+

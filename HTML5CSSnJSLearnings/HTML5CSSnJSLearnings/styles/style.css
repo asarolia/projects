@@ -1,0 +1,138 @@
+﻿body {
+    perspective:100px;
+}
+
+#firstcanvas{
+
+    border: 1px solid green;
+
+}
+
+#mysvg{
+
+    border: 1px solid green;
+
+}
+
+/* Below is the CSS for CSS key frame animations */
+
+
+/*@-webkit-keyframes rectColChange{*/
+
+@keyframes rectColChange{
+
+
+    0%{
+        background-color:yellow;
+        top:0px;
+        left:0px;
+    }
+    50%{
+        background-color:blue;
+        top:200px;
+        left:200px;
+    }
+
+    75%{
+        background-color:red;
+        top:200px;
+        left:0px;
+    }
+
+    100%{
+        background-color:green;
+        top:0px;
+        left:0px;
+    }
+}
+
+div{
+    border:1px solid green;
+    width:100px;
+    height:100px;
+    background-color:gray;
+    position:relative;
+}
+
+#rectAnim.animate{
+    animation:rectColChange 6s ease-in-out 2; 
+    animation-delay:5s;
+    animation-direction:reverse;
+    animation-fill-mode:forwards;
+
+}
+
+/* Below is the CSS transition properties */
+
+p{
+    color:white;
+}
+
+#divtrans{
+
+    border:1px solid green;
+    width:50px;
+    height:50px;
+    background-color:gray;
+    /*transition-duration: 10s;
+    transition-property: width;*/
+    transition:width 2s, height 2s;
+}
+
+#divtrans:hover{
+
+   /* width:500px; */
+    height:800px;
+    /*transform:rotate(90deg);*/
+}
+
+#divtrans:hover p::after{
+    content:"my new text enjoy the transition with dynamic content";
+}
+  
+
+/* Below is the CSS properties for 2d Transformation */
+
+#recttxm{
+
+    border:1px solid green;
+    width:100px;
+    height:100px;
+    background-color:gray;
+    
+}
+
+.txm{
+     width:100px;
+    height:100px;
+  
+    transform: rotate(50deg) scale(1.5,1.5) ;
+}
+
+/* below is the CSS styles for 3D transformations */
+
+#divO{
+    border:1px solid green;
+    width:100px;
+    height:100px;
+    background-color:gray;
+    align-content:center;
+}
+
+/* add the transformation classes for 3d*/
+
+.txmX{
+    perspective-origin:0px 0px;
+    transform:rotateX(45deg);
+
+}
+
+.txmY{
+    perspective-origin:0px 0px;
+    transform:rotateY(45deg);
+}
+
+.txmZ{
+    perspective-origin:0px 0px;
+    transform:rotateZ(45deg);
+}

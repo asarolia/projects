@@ -1,0 +1,257 @@
+using MyHelpers;
+
+public class PropositionDetails
+{
+    private string name, mastercompanynumber, schemecode, productcode, effectivedate, expirationdate, lobcode;
+    private Instance instance;
+    private long instanceNumber = 0;
+    public long Instance
+    {
+        get
+        {
+            return instanceNumber;
+        }
+        set
+        {
+            instanceNumber = value;
+        }
+    }
+
+    private string downloadPath;
+    public string DownloadPath
+    {
+        get { return downloadPath; }
+        set { downloadPath = value; }
+    }
+
+    private string user, password,region;
+
+    public string User
+    {
+        get
+        {
+            return user;
+        }
+        set
+        {
+            user = value;
+        }
+    }
+
+    public string Password
+    {
+        get
+        {
+            return password;
+        }
+        set
+        {
+            password = value;
+        }
+    }
+
+    public string Region
+    {
+        get { return region; }
+        set { region = value; }
+    }
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+    public string MasterCompanyNumber
+    {
+        get { return mastercompanynumber; }
+        set { mastercompanynumber = value; }
+    }    
+
+    public string SchemeCode
+    {
+        get {return schemecode; }
+        set { schemecode = value; }
+    }    
+    public string ProductCode
+    {
+        get {return productcode; }
+        set { productcode = value; }
+    }    
+    public string EffectiveDate
+    {
+        get {return effectivedate; }
+        set { effectivedate = value; }
+    }    
+    public string ExpirationDate
+    {
+        get {return expirationdate; }
+        set { expirationdate = value; }
+    }    
+    public string LOBCode
+    {
+        get {return lobcode; }
+        set { lobcode = value; }
+    }
+
+    private PropositionDetails NewProposition;
+
+    public bool MasterCompanyNumberChanged { get { return (MasterCompanyNumber != nMasterCompanyNumber); } }
+
+    public string nMasterCompanyNumber 
+    { 
+        get { return NewProposition.MasterCompanyNumber;}
+        set {
+            NewProposition.MasterCompanyNumber = value;
+            if (value.Equals(string.Empty))
+                NewProposition.MasterCompanyNumber = MasterCompanyNumber;
+        }
+    }
+    public bool SchemeCodeChanged { get { return (SchemeCode != nSchemeCode); } }
+    public string nSchemeCode
+    {
+        get { return NewProposition.SchemeCode; }
+        set { 
+            NewProposition.SchemeCode = value;
+            if (value.Equals(string.Empty))
+                NewProposition.SchemeCode = SchemeCode;
+        }
+    }
+    public bool ProductCodeChanged
+    {
+        get
+        {
+            return (productcode != nProductCode);
+        }
+    }
+    public string nProductCode
+    {
+        get { return NewProposition.ProductCode; }
+        set { 
+            NewProposition.ProductCode = value;
+            if (value.Equals(string.Empty))
+                NewProposition.ProductCode = ProductCode;
+        }
+    }
+    public bool EffectiveDateChanged { get { return (EffectiveDate != nEffectiveDate); } }
+    public string nEffectiveDate
+    {
+        get { return NewProposition.EffectiveDate; }
+        set { 
+            NewProposition.EffectiveDate = value;
+            if (value.Equals(string.Empty))
+                NewProposition.EffectiveDate = EffectiveDate;
+        }
+    }
+    public bool ExpirationDateChanged { get { return (ExpirationDate != nExpirationDate); } }
+    public string nExpirationDate
+    {
+        get { return NewProposition.ExpirationDate; }
+        set { 
+            NewProposition.ExpirationDate = value;
+            if (value.Equals(string.Empty))
+                NewProposition.ExpirationDate = ExpirationDate;
+        }
+    }
+
+    public PropositionDetails(ProductList product): this()
+    {
+        Name = product.description;
+        MasterCompanyNumber = product.MasterCompanyNbr;
+        SchemeCode = product.SchemeCode;
+        ProductCode = product.ProductCode;
+        EffectiveDate = product.Effective_DT;
+        ExpirationDate = product.Expiration_DT;
+        LOBCode = product.LOB_CD;
+    }
+
+    public PropositionDetails()
+    {
+        initialize();
+
+        NewProposition = new PropositionDetails(false);
+    }
+
+    private void initialize()
+    {
+        Name = "";
+        MasterCompanyNumber = "";
+        SchemeCode = "";
+        ProductCode = "";
+        EffectiveDate = "";
+        ExpirationDate = "";
+        LOBCode = "";
+    }
+
+    private PropositionDetails(bool flag)
+    {
+        initialize();
+    }
+
+    public string SuggestedFileName(bool TechnicalName)
+    {
+        string signature = "Product Customisation Utility";
+
+        if (!TechnicalName)
+        {
+            if (SchemeCodeChanged && nSchemeCode != "XXX")
+                return string.Format("Cloned Data ({0} to {1}) - generated by {2}", SchemeCode, nSchemeCode, signature);
+            else
+                return string.Format("Proposition Data ({0} , {1}) - generated by {2}", SchemeCode, ProductCode, signature);
+        }
+        return Instance.ToString();
+    }
+
+    public string WhatisChanged()
+    {
+        string ret = "";
+        if (SchemeCodeChanged)
+        {
+            ret += "SchemeIdChanged";
+        }
+        if (ProductCodeChanged)
+        {
+            if (ret.Length == 0)
+                ret += "PolicySymbolCodeChanged";
+            else
+                ret += ",PolicySymbolCodeChanged";
+        }
+        if (MasterCompanyNumberChanged)
+        {
+            if (ret.Length == 0)
+                ret += "MasterCompNbrChanged";
+            else
+                ret += ",MasterCompNbrChanged";
+        }
+        return ret;
+    }
+
+    public void SetUserCredentials(string UserId, string Password, string Region)
+    {
+        User = UserId;
+        password = Password;
+        region = Region;
+    }
+
+    public MyParameters GetMyParameters()
+    {
+        MyParameters param = new MyParameters();
+        param.Add(MyParameterOptions.User, User);
+        param.Add(MyParameterOptions.Password, Password);
+        param.Add(MyParameterOptions.Region, Region);
+        param.Add(MyParameterOptions.WhatIsChanged, WhatisChanged());
+        param.Add(MyParameterOptions.ProductCode, ProductCode);
+        param.Add(MyParameterOptions.SchemeCode, SchemeCode);
+        param.Add(MyParameterOptions.LOBCode, LOBCode);
+        param.Add(MyParameterOptions.EffectiveDate, EffectiveDate);
+        param.Add(MyParameterOptions.ExpirationDate, ExpirationDate);
+        param.Add(MyParameterOptions.MasterCompanyNumber, MasterCompanyNumber);
+        
+        param.Add(MyParameterOptions.Modified_ProductCode, nProductCode);
+        param.Add(MyParameterOptions.Modified_SchemeCode, nSchemeCode);
+        param.Add(MyParameterOptions.Modified_MasterCompanyNumber, nMasterCompanyNumber);
+        param.Add(MyParameterOptions.Modified_EffectiveDate, nEffectiveDate);
+        param.Add(MyParameterOptions.Modified_ExpirationDate, nExpirationDate);
+
+        return param;
+    }
+
+}

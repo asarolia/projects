@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FloodReRiskResponse>
+  <uprn>10013330750</uprn>
+  <frid>298D4E18-3E5A-4DC8-8A4E-316E3C96FD36</frid>
+  <source>1</source>
+  <strikeClaimCount>0</strikeClaimCount>
+  <resilienceInd> </resilienceInd>
+  <exclusionInd> </exclusionInd>
+  <category>A</category>
+  <periodInd>0</periodInd>
+  <dataVersion>20150430</dataVersion>
+  <matchLevel>UPRN</matchLevel>
+</FloodReRiskResponse>

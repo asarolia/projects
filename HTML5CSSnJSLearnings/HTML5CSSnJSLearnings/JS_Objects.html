@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Implementing Inheritance and Encapsulation in JS</title>
+	<meta charset="utf-8" />
+    <script type="text/javascript">
+
+        function message(){
+
+        
+        function Car(numCylinders, bhp, mpg, transmission) {
+
+            this.numCylinders = numCylinders
+            this.bhp = bhp
+            this.mpg = mpg
+            this.transmission = transmission
+
+            reportStats : function(){
+                return "You have created car object with"+thuis.numCylinders+"number of cylinders, "+
+                    this.bhp+"brake horsepower, "+this.mpg+"miles per gallon and "+this.transmission+" transmission";
+            }
+        }
+
+        var carobject = new Car(4, 160, 28, "automatic");
+
+        //Ford.prototype = new Car(182,36,"standard");
+
+        //Ford.prototype.fuel_inject_tech = "multiport";
+        
+        //Ford.prototype.reportMore = function(){
+        //    return "You have created car object with"+thuis.numCylinders+"number of cylinders, "+
+        //            this.bhp+"brake horsepower, "+this.mpg+"miles per gallon, "+this.transmission+" transmission and "+this.inject_fuel_tech+" fuel tehcnology"; 
+        //}
+
+        //inheritobject.prototype = Object.create(Car.prototype);
+        
+       
+        //    alert("First inherited object reportStats:"+inheritObject1.reportStats());
+            alert("From web page");
+        }
+
+    </script>
+</head>
+<body>
+
+    <h2>There are 3 ways in which custom objects can be created in JS:</h2>
+    <ol>Using Object Initializers</ol>
+    <ol>Using Constructor function</ol>
+    <ol>Using Object.create method</ol>
+    <br />
+    <br />
+    <h4>Using object initializers</h4>
+    <p> In this properties and methods are directly assigned to variable in comma seperated name value pairs</p>
+    <code>
+        var animalObject = {
+                        type : "Invertebrates",
+                        displayType : function(){
+                                               console.log(this.type);
+                                                }       
+
+        }
+
+    </code>
+
+    <br />
+    <br />
+
+    <h4>Using Constructor function</h4>
+    <p> In this define the object type using constructor and then use new to create object out of it</p>
+    <code>
+           function Animal (type){
+                  this.type = type;
+        }
+
+        var dog = new Animal("Dog");
+
+    </code>
+    <br />
+    <br />
+    <h4> Using Object.create method</h4>
+    <p> This creates object by selecting the prototype object from which new object to be created</p>
+    <code>
+        var animalObject = {
+                        type : "Invertebrates",
+                        displayType : function(){
+                                            console.log(this.type);
+                                                }
+
+        }
+
+        var animal1 = Object.create(animalObject);
+        animal1.displayType();
+
+        var fish = Object.create(animalObject);
+        fish.type = "Fish";
+        fish.displayType();
+
+    </code>
+    <br />
+
+    <button id="btn1" onclick="message()">Click Me</button>
+    <script type="text/javascript">
+
+        function message(){
+
+        
+            function Car(numCylinders, bhp, mpg, transmission) {
+
+                this.numCylinders = numCylinders || 4
+                this.bhp = bhp || 160
+                this.mpg = mpg || 28
+                this.transmission = transmission || "automatic"
+                this.reportStats = function(){
+                    return "You have created car object with"+this.numCylinders+"number of cylinders, "+
+                    this.bhp+"brake horsepower, "+this.mpg+"miles per gallon and "+this.transmission+" transmission";
+                }
+
+                
+            }
+
+            //Car.prototype.reportStats = function(){
+            //    return "You have created car object with"+this.numCylinders+"number of cylinders, "+
+            //        this.bhp+"brake horsepower, "+this.mpg+"miles per gallon and "+this.transmission+" transmission";
+            //}
+
+            var carobject = new Car(5, 120, 30, "automatic");
+            
+            function Ford(){}
+
+            Ford.prototype = new Car();
+
+            Ford.prototype.bhp = 182;
+            Ford.prototype.mpg = 36;
+            Ford.prototype.transmission = "standard";
+
+
+
+            Ford.prototype.fuel_inject_tech = "multiport";
+        
+            //Ford.prototype.reportMore = function(){
+            //    return "You have created car object with"+this.numCylinders+"number of cylinders, "+
+            //            this.bhp+"brake horsepower, "+this.mpg+"miles per gallon, "+this.transmission+" transmission and "+this.fuel_inject_tech+" fuel tehcnology"; 
+            //}
+
+            Ford.prototype.reportMore = function(){
+                return this.reportStats()+" and "+this.fuel_inject_tech+" fuel tehcnology"; 
+            }
+
+            //function InheritObject1(){}
+            //InheritObject1.prototype = Object.create(Car.prototype);
+        
+            var fordObject = new Ford();
+          //  alert("First inherited object reportStats:"+fordObject.reportMore());
+            alert("vehicle :"+carobject.reportStats());
+            
+         //   alert("From web page");
+        }
+
+    </script>
+   
+</body>
+</html>

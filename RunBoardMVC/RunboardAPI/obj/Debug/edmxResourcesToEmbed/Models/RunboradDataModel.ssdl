@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RunDashboardModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CommentTable">
+    <Key>
+      <PropertyRef Name="CommentRecordDt" />
+    </Key>
+    <Property Name="RecordDt" Type="nchar" MaxLength="10" />
+    <Property Name="Type" Type="nchar" MaxLength="10" />
+    <Property Name="CommentRecordDt" Type="datetime" Nullable="false" />
+    <Property Name="RACFID" Type="char" MaxLength="8" />
+    <Property Name="CommentTitle" Type="varchar" MaxLength="50" />
+    <Property Name="CommentText" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="limittable">
+    <Key>
+      <PropertyRef Name="Ttype" />
+    </Key>
+    <Property Name="Ttype" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Failed_Threshold_Red" Type="int" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Red" Type="int" Nullable="false" />
+    <Property Name="Failed_Threshold_Amber" Type="int" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Amber" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RunDashboard.dbo.datatable_view' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="datatable_view">
+    <Key>
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="Total" />
+      <PropertyRef Name="Processed" />
+      <PropertyRef Name="Unprocessed" />
+      <PropertyRef Name="Failed" />
+      <PropertyRef Name="RecordDt" />
+      <PropertyRef Name="Failed_Threshold_Red" />
+      <PropertyRef Name="Unprocess_Threshold_Red" />
+      <PropertyRef Name="Failed_Threshold_Amber" />
+      <PropertyRef Name="Unprocess_Threshold_Amber" />
+    </Key>
+    <Property Name="Type" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Total" Type="int" Nullable="false" />
+    <Property Name="Processed" Type="int" Nullable="false" />
+    <Property Name="Unprocessed" Type="int" Nullable="false" />
+    <Property Name="Failed" Type="int" Nullable="false" />
+    <Property Name="RecordDt" Type="datetime" Nullable="false" />
+    <Property Name="Failed_Threshold_Red" Type="int" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Red" Type="int" Nullable="false" />
+    <Property Name="Failed_Threshold_Amber" Type="int" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Amber" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RunDashboard.dbo.feeddata_view' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="feeddata_view">
+    <Key>
+      <PropertyRef Name="Feed_Type" />
+      <PropertyRef Name="Feed_Name" />
+      <PropertyRef Name="Processed" />
+      <PropertyRef Name="Success" />
+      <PropertyRef Name="Fail" />
+      <PropertyRef Name="RecordDt" />
+      <PropertyRef Name="Failed_Threshold_Red" />
+      <PropertyRef Name="Unprocess_Threshold_Red" />
+      <PropertyRef Name="Failed_Threshold_Amber" />
+      <PropertyRef Name="Unprocess_Threshold_Amber" />
+    </Key>
+    <Property Name="Feed_Type" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="Feed_Name" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Processed" Type="int" Nullable="false" />
+    <Property Name="Success" Type="int" Nullable="false" />
+    <Property Name="Fail" Type="int" Nullable="false" />
+    <Property Name="RecordDt" Type="datetime" Nullable="false" />
+    <Property Name="Failed_Threshold_Red" Type="int" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Red" Type="int" Nullable="false" />
+    <Property Name="Failed_Threshold_Amber" Type="int" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Amber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="RunDashboardModelStoreContainer">
+    <EntitySet Name="CommentTable" EntityType="Self.CommentTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="limittable" EntityType="Self.limittable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="datatable_view" EntityType="Self.datatable_view" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [datatable_view].[Type] AS [Type], 
+    [datatable_view].[Total] AS [Total], 
+    [datatable_view].[Processed] AS [Processed], 
+    [datatable_view].[Unprocessed] AS [Unprocessed], 
+    [datatable_view].[Failed] AS [Failed], 
+    [datatable_view].[RecordDt] AS [RecordDt], 
+    [datatable_view].[Failed_Threshold_Red] AS [Failed_Threshold_Red], 
+    [datatable_view].[Unprocess_Threshold_Red] AS [Unprocess_Threshold_Red], 
+    [datatable_view].[Failed_Threshold_Amber] AS [Failed_Threshold_Amber], 
+    [datatable_view].[Unprocess_Threshold_Amber] AS [Unprocess_Threshold_Amber]
+    FROM [dbo].[datatable_view] AS [datatable_view]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="feeddata_view" EntityType="Self.feeddata_view" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [feeddata_view].[Feed_Type] AS [Feed_Type], 
+    [feeddata_view].[Feed_Name] AS [Feed_Name], 
+    [feeddata_view].[Processed] AS [Processed], 
+    [feeddata_view].[Success] AS [Success], 
+    [feeddata_view].[Fail] AS [Fail], 
+    [feeddata_view].[RecordDt] AS [RecordDt], 
+    [feeddata_view].[Failed_Threshold_Red] AS [Failed_Threshold_Red], 
+    [feeddata_view].[Unprocess_Threshold_Red] AS [Unprocess_Threshold_Red], 
+    [feeddata_view].[Failed_Threshold_Amber] AS [Failed_Threshold_Amber], 
+    [feeddata_view].[Unprocess_Threshold_Amber] AS [Unprocess_Threshold_Amber]
+    FROM [dbo].[feeddata_view] AS [feeddata_view]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

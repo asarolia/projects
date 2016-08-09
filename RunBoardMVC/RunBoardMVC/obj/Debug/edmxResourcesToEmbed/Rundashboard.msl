@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RunDashboardModelStoreContainer" CdmEntityContainer="RunDashboardEntities">
+    <EntitySetMapping Name="CommentTables">
+      <EntityTypeMapping TypeName="RunDashboardModel.CommentTable">
+        <MappingFragment StoreEntitySet="CommentTable">
+          <ScalarProperty Name="RecordDt" ColumnName="RecordDt" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="CommentRecordDt" ColumnName="CommentRecordDt" />
+          <ScalarProperty Name="RACFID" ColumnName="RACFID" />
+          <ScalarProperty Name="CommentTitle" ColumnName="CommentTitle" />
+          <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="limittables">
+      <EntityTypeMapping TypeName="RunDashboardModel.limittable">
+        <MappingFragment StoreEntitySet="limittable">
+          <ScalarProperty Name="Ttype" ColumnName="Ttype" />
+          <ScalarProperty Name="Failed_Threshold_Red" ColumnName="Failed_Threshold_Red" />
+          <ScalarProperty Name="Unprocess_Threshold_Red" ColumnName="Unprocess_Threshold_Red" />
+          <ScalarProperty Name="Failed_Threshold_Amber" ColumnName="Failed_Threshold_Amber" />
+          <ScalarProperty Name="Unprocess_Threshold_Amber" ColumnName="Unprocess_Threshold_Amber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BatchDatas">
+      <EntityTypeMapping TypeName="RunDashboardModel.BatchData">
+        <MappingFragment StoreEntitySet="BatchData">
+          <ScalarProperty Name="Jobname" ColumnName="Jobname" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+          <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+          <ScalarProperty Name="Error_Date" ColumnName="Error_Date" />
+          <ScalarProperty Name="Error_Time" ColumnName="Error_Time" />
+          <ScalarProperty Name="Error_Code" ColumnName="Error_Code" />
+          <ScalarProperty Name="Restart_Date" ColumnName="Restart_Date" />
+          <ScalarProperty Name="Restart_Time" ColumnName="Restart_Time" />
+          <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+          <ScalarProperty Name="End_Time" ColumnName="End_Time" />
+          <ScalarProperty Name="Time_Lost" ColumnName="Time_Lost" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Job_Category" ColumnName="Job_Category" />
+          <ScalarProperty Name="Job_Type" ColumnName="Job_Type" />
+          <ScalarProperty Name="RecordDt" ColumnName="RecordDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="datatables">
+      <EntityTypeMapping TypeName="RunDashboardModel.datatable">
+        <MappingFragment StoreEntitySet="datatable">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Processed" ColumnName="Processed" />
+          <ScalarProperty Name="Unprocessed" ColumnName="Unprocessed" />
+          <ScalarProperty Name="Failed" ColumnName="Failed" />
+          <ScalarProperty Name="RecordDt" ColumnName="RecordDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="deferdatas">
+      <EntityTypeMapping TypeName="RunDashboardModel.deferdata">
+        <MappingFragment StoreEntitySet="deferdata">
+          <ScalarProperty Name="Time_Defer" ColumnName="Time_Defer" />
+          <ScalarProperty Name="Time_Run" ColumnName="Time_Run" />
+          <ScalarProperty Name="Delay" ColumnName="Delay" />
+          <ScalarProperty Name="RecordDt" ColumnName="RecordDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeferObjects">
+      <EntityTypeMapping TypeName="RunDashboardModel.DeferObject">
+        <MappingFragment StoreEntitySet="DeferObjects">
+          <ScalarProperty Name="Object" ColumnName="Object" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="RecordDt" ColumnName="RecordDt" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedDatas">
+      <EntityTypeMapping TypeName="RunDashboardModel.FeedData">
+        <MappingFragment StoreEntitySet="FeedData">
+          <ScalarProperty Name="Feed_Type" ColumnName="Feed_Type" />
+          <ScalarProperty Name="Feed_Name" ColumnName="Feed_Name" />
+          <ScalarProperty Name="Processed" ColumnName="Processed" />
+          <ScalarProperty Name="Success" ColumnName="Success" />
+          <ScalarProperty Name="Fail" ColumnName="Fail" />
+          <ScalarProperty Name="RecordDt" ColumnName="RecordDt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HalErrs">
+      <EntityTypeMapping TypeName="RunDashboardModel.HalErr">
+        <MappingFragment StoreEntitySet="HalErr">
+          <ScalarProperty Name="Error_Ref" ColumnName="Error_Ref" />
+          <ScalarProperty Name="Day_O_Count" ColumnName="Day_O_Count" />
+          <ScalarProperty Name="Day_T_Count" ColumnName="Day_T_Count" />
+          <ScalarProperty Name="Day_Th_Count" ColumnName="Day_Th_Count" />
+          <ScalarProperty Name="Fail_Pgm_Name" ColumnName="Fail_Pgm_Name" />
+          <ScalarProperty Name="Fail_Para_Name" ColumnName="Fail_Para_Name" />
+          <ScalarProperty Name="RecordDt" ColumnName="RecordDt" />
+          <ScalarProperty Name="Day_Fo_Count" ColumnName="Day_Fo_Count" />
+          <ScalarProperty Name="Day_Fi_Count" ColumnName="Day_Fi_Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logindetails">
+      <EntityTypeMapping TypeName="RunDashboardModel.logindetail">
+        <MappingFragment StoreEntitySet="logindetails">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

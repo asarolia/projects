@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40">
+<Styles>
+	<Style ss:ID="Hyperlink">
+		<Font ss:Color="#0000ff" ss:Underline="Single"/>
+	</Style>
+	<Style ss:ID="Bold">
+		<Font ss:Bold="1"/>
+	</Style>
+	<Style ss:ID="ColName">
+		<Font ss:Bold="1"/>
+		<Interior ss:Color="#ffffaa" ss:Pattern="Solid"/>
+		<Borders>
+		    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+		    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+		    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+		    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+		</Borders>
+	</Style>
+	<Style ss:ID="Type">
+		<Font ss:Bold="1"/>
+		<Interior ss:Color="#aaffff" ss:Pattern="Solid"/>
+		<Borders>
+		    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+		    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+		    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+		    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+		</Borders>
+	</Style>
+	<Style ss:ID="StartEnd">
+		<Interior ss:Color="#cbbbff" ss:Pattern="Solid"/>
+	</Style>
+	<Style ss:ID="Add">
+		<Interior ss:Color="#ffcfaf" ss:Pattern="Solid"/>
+	</Style>
+	<Style ss:ID="DataText">
+		<Font ss:Color="#0000ff"/>
+		<Borders>
+		    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+		    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+		    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+		    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+		</Borders>
+	</Style>
+	<Style ss:ID="TabComment">
+		<Font ss:Color="#FFFFFF" ss:Bold="1" ss:Size="12" ss:FontName="Arial"/>
+		<Interior ss:Color="#000088" ss:Pattern="Solid"/>
+	</Style>
+</Styles>

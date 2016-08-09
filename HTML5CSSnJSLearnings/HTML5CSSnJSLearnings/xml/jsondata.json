@@ -1,0 +1,14 @@
+﻿{
+  "FloodReRiskResponse": {
+    "uprn": "10013330750",
+    "frid": "298D4E18-3E5A-4DC8-8A4E-316E3C96FD36",
+    "source": "1",
+    "strikeClaimCount": "0",
+    "resilienceInd": " ",
+    "exclusionInd": " ",
+    "category": "A",
+    "periodInd": "0",
+    "dataVersion": "20150430",
+    "matchLevel": "UPRN"
+  }
+}

@@ -1,0 +1,19 @@
+c:\users\asarolia\documents\visual studio 2010\Projects\EASE\EASE\bin\EASE.dll
+c:\users\asarolia\documents\visual studio 2010\Projects\EASE\EASE\bin\EASE.pdb
+c:\users\asarolia\documents\visual studio 2010\Projects\EASE\EASE\bin\ICSharpCode.SharpZipLib.dll
+c:\users\asarolia\documents\visual studio 2010\Projects\EASE\EASE\bin\Lucene.Net.dll
+c:\users\asarolia\documents\visual studio 2010\Projects\EASE\EASE\bin\Lucene.Net.pdb
+c:\users\asarolia\documents\visual studio 2010\Projects\EASE\EASE\bin\Lucene.Net.xml
+c:\users\asarolia\documents\visual studio 2010\Projects\EASE\EASE\obj\Debug\EASE.csprojResolveAssemblyReference.cache
+c:\users\asarolia\documents\visual studio 2010\Projects\EASE\EASE\obj\Debug\EASE.dll
+c:\users\asarolia\documents\visual studio 2010\Projects\EASE\EASE\obj\Debug\EASE.pdb
+C:\Tools\EASE\EASE\bin\EASE.dll.config
+C:\Tools\EASE\EASE\bin\EASE.dll
+C:\Tools\EASE\EASE\bin\EASE.pdb
+C:\Tools\EASE\EASE\bin\ICSharpCode.SharpZipLib.dll
+C:\Tools\EASE\EASE\bin\Lucene.Net.dll
+C:\Tools\EASE\EASE\bin\Lucene.Net.pdb
+C:\Tools\EASE\EASE\bin\Lucene.Net.xml
+C:\Tools\EASE\EASE\obj\Debug\EASE.csprojResolveAssemblyReference.cache
+C:\Tools\EASE\EASE\obj\Debug\EASE.dll
+C:\Tools\EASE\EASE\obj\Debug\EASE.pdb

@@ -1,0 +1,5 @@
+c:\users\asarolia\documents\visual studio 2015\Projects\ConsoleApplication2\Assembly2\bin\Debug\Assembly2.dll
+c:\users\asarolia\documents\visual studio 2015\Projects\ConsoleApplication2\Assembly2\bin\Debug\Assembly2.pdb
+c:\users\asarolia\documents\visual studio 2015\Projects\ConsoleApplication2\Assembly2\obj\Debug\Assembly2.csprojResolveAssemblyReference.cache
+c:\users\asarolia\documents\visual studio 2015\Projects\ConsoleApplication2\Assembly2\obj\Debug\Assembly2.dll
+c:\users\asarolia\documents\visual studio 2015\Projects\ConsoleApplication2\Assembly2\obj\Debug\Assembly2.pdb

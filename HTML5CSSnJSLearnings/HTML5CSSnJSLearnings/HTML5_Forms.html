@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML5 Form elements</title>
+	<meta charset="utf-8" />
+    <script src="scripts/formvalidation.js"></script>
+</head>
+<body>
+    <form onsubmit="validate();">
+        <p>UserName:</p>
+        <br />
+        <input type="text" id="uname" required="required" pattern="[A-Z]/[a-z]" />
+        <br />
+        <p>Password:</p>
+        <br />
+        <input type="password" id="pwd" maxlength="6" pattern="" />
+        <br />
+        <p>User ID:</p>
+        <br />
+        <input type="number" id="uid" min="1000" max="2000" />
+        <br />
+        <br />
+        <p>Please choose the repair garage:</p>
+        <input type="radio" name="rd1" value="Easy Nomad Garage"> Easy Nomad Garage
+        <br />
+        <input type="radio" name="rd1" value="Easy Nomad Auto Shop" >Easy Nomad Auto Shop
+        <br />
+        <input type="radio" name="rd1" value="Easy Nomad Auto centre" > Easy Nomad Auto Centre
+        <br />
+        <br />
+        <button id="btn1">Submit</button>
+
+    </form>
+
+</body>
+</html>

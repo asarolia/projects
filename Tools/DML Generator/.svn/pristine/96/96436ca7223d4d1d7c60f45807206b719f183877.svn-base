@@ -1,0 +1,70 @@
+﻿@model DML.Generator.Web.Models.FileUploadViewModel
+@using DML.Generator.Domain
+@if (Model != null && Model.DMLInfo != null && Model.DMLInfo.Count > 0)
+{ 
+    <div class= "bluebox" id="download">
+        <h4>Download DMLs</h4>
+        <div class="message inblock">
+            Please click on download buttons to download DML Files.
+        </div>
+         <div class= "inblock">
+            <div class= "block">
+                @Html.ActionLink("Download FE DML", "DownloadDML", "Home", new { id = "FE" }, new { @class = "button medium green" })
+            </div>
+            <div class= "block">
+                @Html.ActionLink("Download HOST DML", "DownloadDML", "Home", new { id = "HOST" }, new { @class = "button medium green" })
+            </div>
+        </div>
+    </div>
+    
+    <div class="bluebox">
+    <div class= "block">
+    <div class="message inblock">
+        Please click on Verify if following result is correct.
+    </div>
+    <div class= "inblock">
+        <input type="submit" name ="Verify" value="Verify" id="Verify" class="button medium green"/>
+    </div>
+    </div>
+    <div class = "block">
+    <div class="SheetInfoHeader">
+        <span class="cellContent">Sheet Name</span>
+            <span class="cellContent">Exceed Table Name</span>
+            <span class="cellContent">Host DML Name</span>
+            <span class="cellContent">FE DML Name</span>
+            <span class="cellContent">Status</span>
+        </div>
+    @foreach (DMLInfo Info in Model.DMLInfo)
+    {
+        <div class="SheetInfo" id="@Info.SheetData.Name">
+            <span class="cellContent">@Info.SheetData.Name</span>
+            <span class="cellContent">@Info.SheetData.TableName</span>
+            <span class="cellContent">@Info.HostDMLName</span>
+            <span class="cellContent">@Info.FEDMLName</span>
+            @if (string.IsNullOrEmpty(Info.HostDMLName) && string.IsNullOrEmpty(Info.FEDMLName))
+            {
+                <span class="warning">Host and FE DML name missing.</span>
+            }
+            
+            @if (string.IsNullOrEmpty(Info.HostDMLName) && !string.IsNullOrEmpty(Info.FEDMLName))
+            {
+                <span class="warning">Host DML name missing.</span>
+            }
+            
+            @if (!string.IsNullOrEmpty(Info.HostDMLName) && string.IsNullOrEmpty(Info.FEDMLName))
+            {
+                <span class="warning">FE DML name missing.</span>
+            }
+            
+            @if (!string.IsNullOrEmpty(Info.HostDMLName) && !string.IsNullOrEmpty(Info.FEDMLName))
+            {
+                <span class="success">Initial verification passed.</span>
+            }
+
+        </div>
+    }
+    </div>
+    </div>
+}
+
+

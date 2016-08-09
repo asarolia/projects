@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.IO;
+using System.Configuration;
+using DML.Generator.Web.Helper;
+
+namespace DML.Generator.Web.Extension
+{
+    public static class ExtensionHelper
+    {
+        public static void WriteToFile(this string DMLString, string type, string clientIP, string fileName)
+        {
+            string path = DMLHelper.GetDirectoryPath(clientIP);
+            string directoryPath = string.Format("{0}/{1}", path, type);
+            string filePath = DMLHelper.GetFilePath(directoryPath, fileName + ".txt");
+            StreamWriter writer;
+            if(!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+
+            writer = File.Exists(filePath) ? new StreamWriter(filePath, true) : new StreamWriter(filePath, false);
+            writer.WriteLine(DMLString);
+            writer.Close();
+        }
+    }
+}

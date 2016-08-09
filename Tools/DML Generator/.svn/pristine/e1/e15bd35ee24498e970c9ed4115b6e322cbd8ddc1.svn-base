@@ -1,0 +1,32 @@
+﻿@model DML.Generator.Web.Models.AddSchemeViewModel
+
+@{
+    ViewBag.Title = "AddScheme";
+}
+@using (Html.BeginForm())
+{
+<div class ="bluebox">
+
+    <h2>Add Scheme</h2>
+    @if (TempData["message"] != null && !string.IsNullOrEmpty(TempData["message"].ToString()))
+    {
+        <div class = "tempMessage">
+           @TempData["message"]
+        </div>
+    }
+    <div class = "input">
+        @Html.LabelFor(model => model.SchemeId)
+        @Html.TextBoxFor(model => model.SchemeId)
+        @Html.ValidationMessageFor(model => model.SchemeId)
+    </div>
+     <div class = "input">
+        <input type="submit" name="AddScheme" value="Add Scheme" class="button medium green"/>
+    </div>
+</div>
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('ul#saturday').children('li:nth-child(3)').addClass('selectedMenu');
+        $('ul#saturday').children('li:nth-child(3)').children('a').css('color', '#FFF');
+    });
+     </script>

@@ -1,0 +1,132 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Data.SqlClient;
+using System.Security.Principal;
+
+public partial class DashBoard : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        Response.Write(WindowsIdentity.GetCurrent().Name.ToString());
+
+        if (!Page.IsPostBack)
+        {
+        //    BindGridView();
+        }
+
+    }
+    protected void grdGridView_RowEditing(object sender, GridViewEditEventArgs e)
+    {
+        grdGridView.EditIndex = e.NewEditIndex; // turn to edit mode        
+        //((DropDownList)grdGridView.Rows[grdGridView.EditIndex].FindControl("drpErrorStatus")).SelectedValue 
+        BindGridView();
+    }
+    protected void grdGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    {        
+        string id1 = ((HiddenField)grdGridView.Rows[e.RowIndex].Cells[1].FindControl("hidGuid")).Value;
+        Guid id = new Guid(id1);
+        string comment = ((TextBox)grdGridView.Rows[e.RowIndex].Cells[8].FindControl("txtErrorComment")).Text;
+        string status = ((DropDownList)grdGridView.Rows[e.RowIndex].Cells[7].FindControl("drpErrorStatus")).SelectedValue;
+        UpdateRecord(id, comment, status);
+        BindGridView(); 
+    }
+
+    private void UpdateRecord(Guid id, string comment, string status)
+    {
+        SqlConnection connection = new SqlConnection();
+        connection.ConnectionString = ConfigurationManager.ConnectionStrings[1].ToString();
+        string sqlStatement = "UPDATE MasterError " +
+                             "SET Comment = @comment, statuscd = @status WHERE GUID = @Id";
+        
+        try
+        {
+            connection.Open();
+            SqlCommand cmd = new SqlCommand(sqlStatement, connection);
+            cmd.Parameters.AddWithValue("@comment", comment);
+            cmd.Parameters.AddWithValue("@Id", id);
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.CommandType = CommandType.Text;            
+            cmd.ExecuteNonQuery();
+            grdGridView.EditIndex = -1;            
+        }
+        catch (System.Data.SqlClient.SqlException ex)
+        {
+            string msg = "Insert/Update Error:";
+            msg += ex.Message;
+            throw new Exception(msg);
+        }
+        finally
+        {
+            connection.Close();
+        }
+
+    }
+  
+    private void BindGridView()
+    {
+        DataTable dt = new DataTable();        
+        SqlConnection connection = new SqlConnection();
+        connection.ConnectionString = ConfigurationManager.ConnectionStrings[1].ToString();
+        try
+        {
+            connection.Open();
+            string sqlStatement = "select a.Guid, a.ReportDate, a.ErrorId, a.ErrorText, a.Source,a.Count,a.Comment, a.statuscd, b.statustext from mastererror a Inner Join	status b on a.statuscd = b.Code and ReportDate >= '" + txtfrom.Text + "' and ReportDate <= '" + txtto.Text + "'";
+            SqlCommand sqlCmd = new SqlCommand(sqlStatement, connection);                        
+            SqlDataAdapter sqlDa = new SqlDataAdapter(sqlCmd);            
+            sqlDa.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                grdGridView.DataSource = dt;
+                grdGridView.DataBind();
+            }
+            else
+            {
+                grdGridView.DataSource = dt;
+                grdGridView.DataBind();
+                this.ClientScript.RegisterStartupScript(this.Page.GetType(), "ABC", "<script language=\"javascript\" type=\"text/javascript\" >alert( \"No Data found for these dates" + "\" );</script>", false);
+            }
+        }
+        catch (System.Data.SqlClient.SqlException ex)
+        {
+            string msg = "Fetch Error:";
+            msg += ex.Message;
+            throw new Exception(msg);
+        }
+        finally
+        {
+            connection.Close();
+        }
+    }
+
+    protected void grdGridView_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+    {
+        grdGridView.EditIndex = -1; 
+        BindGridView(); 
+    }
+    protected void btnLoadGrid_Click(object sender, EventArgs e)
+    {
+        BindGridView();
+    }
+    protected void grdGridView_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+       if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            DropDownList drpTemp;
+            //Label lblTemp;
+            HiddenField hidTemp;
+            drpTemp = ((DropDownList)e.Row.FindControl("drpErrorStatus"));
+            hidTemp = ((HiddenField)e.Row.FindControl("hidErrorStatus"));
+            //lblTemp = ((Label)e.Row.FindControl("lblErrorStatus"));
+            if (drpTemp != null && hidTemp != null)
+                drpTemp.SelectedValue = hidTemp.Value;
+       }
+    }
+}

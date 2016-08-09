@@ -1,0 +1,16 @@
+﻿@model DML.Generator.Web.Models.FileUploadViewModel
+@using DML.Generator.Domain
+@if (Model.DMLInfo != null && Model.DMLInfo.Count > 0)
+{ 
+    <input type="submit" name ="Verify" value="Verify" />
+    foreach (DMLInfo Info in Model.DMLInfo)
+    {
+        <div class="SheetInfo">
+            <span class="cellContent">@Info.SheetData.Name</span>
+            <span class="cellContent">@Info.SheetData.TableName</span>
+            <span class="cellContent">@Info.HostDMLName</span>
+            <span class="cellContent">@Info.FEDMlName</span>
+        </div>
+    }
+}
+

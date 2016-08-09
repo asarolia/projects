@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHTTPREQUEST Learnings</title>
+    <meta charset="utf-8" />
+    <!--<link href="styles/style1.css" rel="stylesheet" />-->
+    <script src="scripts/jquery-2.1.4.min.js"></script>
+    <script src="scripts/xmlhttp.js"></script>
+	
+</head>
+<!--<body onload="onLoad()">-->
+<body>
+    <div id="subsdiv">
+        This is the main substitution div
+
+    </div>
+    <br />
+    <br />
+    <div id="maindiv">
+        <button id="sunrise" onclick="startLoadEvent(this.id)">Sunrise</button>
+        &nbsp;&nbsp;<button id="sunset" onclick="startLoadEvent(this.id)">Sunset</button>
+        &nbsp;&nbsp;<button id="night" onclick="startLoadEvent(this.id)">Night</button>
+        <br />
+        <br />
+        <p>Click on below button to process the ajax request using XMLHTTPRequest against webservice - http://10.201.204.192:9080/api/PasswordDigest/test1 </p>
+        <br />
+        <br />
+        <label>Enter your password for conversion: </label>
+        <br />
+        <input type="text" id="txt1" />
+        <br />
+        <br />
+        <button id="btn1">Plain XMLHTTP</button>
+        &nbsp;&nbsp;
+        <button id="btn2">Jquery Ajax</button>
+        <br />
+        <br />
+        <div id="output">
+            output div
+        </div>
+    </div>
+
+</body>
+</html>

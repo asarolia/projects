@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RunDashboardModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CommentTable">
+    <Key>
+      <PropertyRef Name="CommentRecordDt" />
+    </Key>
+    <Property Name="RecordDt" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CommentRecordDt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RACFID" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="CommentTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CommentText" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="limittable">
+    <Key>
+      <PropertyRef Name="Ttype" />
+    </Key>
+    <Property Name="Ttype" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Failed_Threshold_Red" Type="Int32" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Red" Type="Int32" Nullable="false" />
+    <Property Name="Failed_Threshold_Amber" Type="Int32" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Amber" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="datatable_view">
+    <Key>
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="Total" />
+      <PropertyRef Name="Processed" />
+      <PropertyRef Name="Unprocessed" />
+      <PropertyRef Name="Failed" />
+      <PropertyRef Name="RecordDt" />
+      <PropertyRef Name="Failed_Threshold_Red" />
+      <PropertyRef Name="Unprocess_Threshold_Red" />
+      <PropertyRef Name="Failed_Threshold_Amber" />
+      <PropertyRef Name="Unprocess_Threshold_Amber" />
+    </Key>
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Total" Type="Int32" Nullable="false" />
+    <Property Name="Processed" Type="Int32" Nullable="false" />
+    <Property Name="Unprocessed" Type="Int32" Nullable="false" />
+    <Property Name="Failed" Type="Int32" Nullable="false" />
+    <Property Name="RecordDt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Failed_Threshold_Red" Type="Int32" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Red" Type="Int32" Nullable="false" />
+    <Property Name="Failed_Threshold_Amber" Type="Int32" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Amber" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="feeddata_view">
+    <Key>
+      <PropertyRef Name="Feed_Type" />
+      <PropertyRef Name="Feed_Name" />
+      <PropertyRef Name="Processed" />
+      <PropertyRef Name="Success" />
+      <PropertyRef Name="Fail" />
+      <PropertyRef Name="RecordDt" />
+      <PropertyRef Name="Failed_Threshold_Red" />
+      <PropertyRef Name="Unprocess_Threshold_Red" />
+      <PropertyRef Name="Failed_Threshold_Amber" />
+      <PropertyRef Name="Unprocess_Threshold_Amber" />
+    </Key>
+    <Property Name="Feed_Type" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Feed_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Processed" Type="Int32" Nullable="false" />
+    <Property Name="Success" Type="Int32" Nullable="false" />
+    <Property Name="Fail" Type="Int32" Nullable="false" />
+    <Property Name="RecordDt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Failed_Threshold_Red" Type="Int32" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Red" Type="Int32" Nullable="false" />
+    <Property Name="Failed_Threshold_Amber" Type="Int32" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Amber" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="RunDashboardEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CommentTables" EntityType="Self.CommentTable" />
+    <EntitySet Name="limittables" EntityType="Self.limittable" />
+    <EntitySet Name="datatable_view" EntityType="Self.datatable_view" />
+    <EntitySet Name="feeddata_view" EntityType="Self.feeddata_view" />
+  </EntityContainer>
+</Schema>

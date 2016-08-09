@@ -1,0 +1,9 @@
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\MyHelpers\bin\Release\MyHelpers.dll
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\MyHelpers\bin\Release\MyHelpers.pdb
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\MyHelpers\bin\Release\ICSharpCode.SharpZipLib.dll
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\MyHelpers\obj\x86\Release\ResolveAssemblyReference.cache
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\MyHelpers\obj\x86\Release\MyHelpers.Properties.Resource.resources
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\MyHelpers\obj\x86\Release\GenerateResource.read.1.tlog
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\MyHelpers\obj\x86\Release\GenerateResource.write.1.tlog
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\MyHelpers\obj\x86\Release\MyHelpers.dll
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\MyHelpers\obj\x86\Release\MyHelpers.pdb

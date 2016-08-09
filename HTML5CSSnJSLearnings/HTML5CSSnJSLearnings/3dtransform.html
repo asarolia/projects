@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>3D transform learnings</title>
+    <link href="styles/style.css" rel="stylesheet" />
+    <script>
+        function transformStart() {
+
+            var div1 = document.createElement("div");
+            var div2 = document.createElement("div");
+            var div3 = document.createElement("div");
+            var cont = document.getElementById("cont");
+
+            cont.appendChild(div1);
+            cont.appendChild(div2);
+            cont.appendChild(div3);
+
+            div1.classList.add("txmX");
+            div2.classList.add("txmY");
+            div3.classList.add("txmZ");
+
+        }
+    </script>
+	<meta charset="utf-8" />
+</head>
+<body id="cont">
+
+    <p> Click on button to see 3D transformations</p>
+    <br />
+    <button id="btn1" onclick="transformStart()">Transform below div</button>
+    <br />
+    <div id="divO"> Thus is original div
+
+    </div>
+
+</body>
+</html>

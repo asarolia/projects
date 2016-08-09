@@ -1,0 +1,257 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.Office.Interop.Excel;
+using System.Data;
+using System.Xml.Linq;
+
+namespace DML.Generator.Domain
+{
+        /// <summary>
+        /// 
+        /// </summary>
+        public class ExcelFactory
+        {
+            /// <summary>
+            /// Gets or sets the path.
+            /// </summary>
+            /// <value>
+            /// The path.
+            /// </value>
+            private string Path { get; set; }
+
+            /// <summary>
+            /// Gets or sets the data set.
+            /// </summary>
+            /// <value>
+            /// The data set.
+            /// </value>
+            private DataSet dataSet { get; set; }
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="s">The s.</param>
+            public delegate void Callback(string s);
+
+            /// <summary>
+            /// Occurs when [notify].
+            /// </summary>
+            public event Callback Notify;
+
+            /// <summary>
+            /// Gets or sets the state of the subject.
+            /// </summary>
+            /// <value>
+            /// The state of the subject.
+            /// </value>
+            public string SubjectState { get; set; }
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="ExcelFactory"/> class.
+            /// </summary>
+            /// <param name="path">The path.</param>
+            public ExcelFactory(string path)
+            {
+                this.Path = path;
+            }
+
+            /// <summary>
+            /// Creates the table columns.
+            /// </summary>
+            /// <param name="dataTable">The data table.</param>
+            /// <param name="tableColumns">The table columns.</param>
+            private void CreateTableColumns(System.Data.DataTable dataTable, List<string> tableColumns)
+            {
+                List<string> columnsNames = new List<string>();
+                foreach (string columnName in columnsNames)
+                {
+                    dataTable.Columns.Add(columnName);
+                }
+            }
+
+            /// <summary>
+            /// Reads the excel.
+            /// </summary>
+            /// <returns></returns>
+            public List<ExcelSheetInformation> ReadExcel()
+            {
+                Application application = new Application();
+                Workbook workbook = application.Workbooks.Open(this.Path);
+                List<ExcelSheetInformation> ExcelSheetsInformation = new List<ExcelSheetInformation>();
+                try
+                {
+                    foreach (_Worksheet xlWorksheet in workbook.Sheets)
+                    {
+                        if (!string.Equals(xlWorksheet.Name, "Table Index"))
+                        {
+                            Range xlRange = xlWorksheet.UsedRange;
+                            if (xlRange != null)
+                            {
+                                string tableName = this.GetExceedTableName(xlRange).Trim();
+                                string HostDMLName = this.GetHostDMLName(tableName).Trim();
+                                string FEDMLName = this.GetFEDMLName(tableName).Trim();
+                                ExcelSheetsInformation.Add(
+                                    new ExcelSheetInformation
+                                    {
+                                        SheetName = xlWorksheet.Name,
+                                        TableName = tableName,
+                                        HostDMLName = HostDMLName,
+                                        FEDMlName = FEDMLName
+                                    });
+                            }
+                        }
+                    }
+
+                }
+                finally
+                {
+                    workbook.Close();
+                }
+                
+                ExcelSheetsInformation.ForEach(sheetInformation =>
+                {
+                    if (string.IsNullOrEmpty(sheetInformation.HostDMLName))
+                    {
+                        this.GetHostDMLNameFromGroup(sheetInformation);
+                    }
+                });
+                
+                return ExcelSheetsInformation;
+            }
+
+            /// <summary>
+            /// Gets the host DML name from group.
+            /// </summary>
+            /// <param name="sheetInformation">The sheet information.</param>
+            private void GetHostDMLNameFromGroup(ExcelSheetInformation sheetInformation)
+            {
+                Application application = new Application();
+                Workbook workbook = application.Workbooks.Open(this.Path);
+                try
+                {
+                 
+                    _Worksheet xlWorksheet = workbook.Sheets[sheetInformation.SheetName];
+                    Range xlRange = xlWorksheet.UsedRange;
+                    if (xlRange != null)
+                    {
+                        string schemeID = this.GetSchemeId(xlRange);
+                        sheetInformation.HostDMLName = this.GetHostDMLNameForGroup(sheetInformation.TableName, schemeID);
+                    }
+                }
+                finally
+                {
+                    workbook.Close();
+                }
+            }
+
+            private string GetHostDMLNameForGroup(string tableName, string schemeID)
+            {
+                XDocument doc = XDocument.Load(System.Configuration.ConfigurationManager.AppSettings.Get("Mapping"));
+                XElement element = doc.Root.Elements(tableName).FirstOrDefault();
+
+                if (element != null && element.Attribute("grping") != null && string.Equals(element.Attribute("grping").Value.ToUpper(),"Y"))
+                {
+                    XElement childElement = element.Elements("DML_grp_map").FirstOrDefault(x => x.Attribute("value") != null && string.Equals(x.Attribute("value").Value, schemeID));
+                    if (childElement != null)
+                    {
+                        return childElement.Attribute("HostCB").Value;
+                    }
+                }
+
+                return string.Empty;
+            }
+
+            /// <summary>
+            /// Gets the scheme id.
+            /// </summary>
+            /// <param name="range">The range.</param>
+            /// <returns></returns>
+            private string GetSchemeId(Range range)
+            {
+                string schemeId = string.Empty;
+                int rowCount = 1;
+                int colCount = 1;
+                
+                foreach (Range row in range.Rows)
+                {
+                    colCount = 1;
+                    foreach (Range col in row.Cells)
+                    {
+                        if (col != null && col.Value2 != null && string.Equals(col.Value2, "SCHEME_ID"))
+                        {
+                            return range.Value2[rowCount + 4, colCount].ToString();
+                        }
+                        colCount++;
+                    }
+                    rowCount++;
+                }
+                
+                return schemeId;
+            }
+
+            /// <summary>
+            /// Gets the name of the FEDML.
+            /// </summary>
+            /// <param name="tableName">Name of the table.</param>
+            /// <returns></returns>
+            private string GetFEDMLName(string tableName)
+            {
+                XDocument doc = XDocument.Load(System.Configuration.ConfigurationManager.AppSettings.Get("Mapping"));
+                XElement element= doc.Root.Elements(tableName).FirstOrDefault();
+                
+                if (element != null && element.Attribute("FeDML") != null)
+                {
+                    return element.Attribute("FeDML").Value;
+                }
+
+                return string.Empty;
+            }
+
+            /// <summary>
+            /// Gets the name of the host DML.
+            /// </summary>
+            /// <param name="tableName">Name of the table.</param>
+            /// <returns></returns>
+            private string GetHostDMLName(string tableName)
+            {
+                XDocument doc = XDocument.Load(System.Configuration.ConfigurationManager.AppSettings.Get("Mapping"));
+                XElement element = doc.Root.Elements(tableName).FirstOrDefault();
+
+                if (element != null && element.Attribute("HostCB") != null)
+                {
+                    return element.Attribute("HostCB").Value;
+                }
+
+                return string.Empty;
+            }
+
+            /// <summary>
+            /// Gets the name of the exceed table.
+            /// </summary>
+            /// <param name="range">The range.</param>
+            /// <returns></returns>
+            private string GetExceedTableName(Range range)
+            {
+                string tableName = string.Empty;
+                int rowCount = 1;
+                int colCount = 1;
+                foreach (Range row in range.Rows)
+                {
+                    colCount = 1;
+                    foreach (Range col in row.Cells)
+                    {
+                        if (col != null && col.Value2 != null && string.Equals(col.Value2, "Exceed Table:"))
+                        {
+                            return range.Value2[rowCount, colCount + 1];
+                        }
+                        colCount++;
+                    }
+                    rowCount++;
+                }
+                return tableName;
+            }
+        }
+    }
+

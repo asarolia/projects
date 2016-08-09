@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="RunBoard.SiteMaster" %>
+<%--<%@ register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>--%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+   <%-- <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />--%>
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style2
+        {
+            color: #FFFFFF;
+            font-size: medium;
+        }
+        .style3
+        {
+            font-weight: normal;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+<body style="background-image:url(Images/green_yellow.jpg);">
+    <form runat="server">
+    <div class="page">         
+        <div class="header">    
+            <div class="title" style="background-image:url('Images/header-background1.png'); height: 100px;">
+            <p>
+            <h1 class="style3">
+                    Aviva-Exceed Daily Dashboard</h1>
+                    <span class="style2">(Last Day Exceed Health Status)</span></p>
+                <div id="logout">
+                    <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click">Log Out</asp:LinkButton>
+                 <br /><br />
+                 </div>
+                <%--<div style="width: 100%; height: 50px; float: left;">
+                  <div style="width: 28%; height: 50px; float: left; background-color:#4E9902">
+                  </div>
+                  <div style="width: 72%; height: 50px; float: left; background-image:url(Images/headerbg1.png);">
+                  </div>
+                </div>               
+                <div style="width: 100%; height: 8px; float: left;">
+                    <div style="width: 39%; height: 8px; float: left; background-color: #FFCC66;">
+                    </div>
+                    <div style="width: 61%; height: 8px; float: left; background-color: #549635;">
+                    </div>
+                </div>--%>
+            </div>
+        </div>     
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+     </div>
+   
+    </form>
+</body>
+</html>

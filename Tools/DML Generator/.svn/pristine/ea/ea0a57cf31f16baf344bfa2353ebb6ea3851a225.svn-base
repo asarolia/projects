@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using Data = System.Data;
+using System.Diagnostics.Contracts;
+using DML.Generator.Domain;
+using Microsoft.Office.Interop.Excel;
+
+namespace DML.Generator.Domain.Extensions
+{
+    public static class ExtensionMethods
+    {
+        /// <summary>
+        /// Toes the data table.
+        /// </summary>
+        /// <param name="Info">The info.</param>
+        /// <returns></returns>
+        public static Data::DataTable ToDataTable(this DMLInfo Info)
+        { 
+            Contract.Requires(Info != null);
+            Data::DataTable table = new Data::DataTable(Info.SheetData.TableName);
+            BuildDataColumns(ref table,Info);
+            return table;
+        }
+
+        /// <summary>
+        /// Builds the data columns.
+        /// </summary>
+        /// <param name="table">The table.</param>
+        /// <param name="Info">The info.</param>
+        private static void BuildDataColumns(ref Data::DataTable table, DMLInfo Info)
+        {
+            List<Data::DataColumn> keyColumn = new List<Data::DataColumn>();
+            for (int i = 2; i <= Info.SheetData.ColumnCount; i++)
+            {
+                Data::DataColumn column = new Data::DataColumn
+                {
+                    ColumnName = Info.SheetData.UsedRange[Info.SheetData.ColumnRowIndex, i].ToString()
+                    //,DataType = Info.SheetData.UsedRange[Info.SheetData.TypeRowIndex, i].ToString().Split('(')[0]
+                };
+                if (string.Equals(Info.SheetData.UsedRange[Info.SheetData.PrimaryRowIndex, i].ToString().ToLower(), "yes"))
+                {
+                    keyColumn.Add(column);
+                }
+                table.Columns.Add(column);
+            }
+            table.PrimaryKey = keyColumn.ToArray();
+        }
+    }
+}

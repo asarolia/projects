@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+****************************************************************************************
+* Maintenance Log
+****************************************************************************************
+* Date			Change		Description
+****************************************************************************************
+* 24.11.2015	        		Initial version for  Web Service build
+****************************************************************************************
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dp="dp.norwich-union.com" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="CalculatedResult.xsd"/>
+  <xs:include schemaLocation="ClauseResultRs.xsd"/>
+  <xs:include schemaLocation="ClientQuestions.xsd"/>
+  <xs:include schemaLocation="CoverNCD.xsd"/>
+  <xs:include schemaLocation="Dwelling.xsd"/>
+  <xs:include schemaLocation="DwellingCover.xsd"/>
+  <xs:include schemaLocation="DwlClient.xsd"/>
+  <xs:include schemaLocation="DwlExtendedCover.xsd"/>
+  <xs:include schemaLocation="DwlSubsidenceQuestionnaire.xsd"/>
+  <xs:include schemaLocation="ExcessExisting.xsd"/>
+  <xs:include schemaLocation="LossHistory.xsd"/>
+  <xs:include schemaLocation="NUCommonElements.xsd"/>
+  <xs:include schemaLocation="NUPropertyTypes.xsd"/>
+  <xs:include schemaLocation="Occupation.xsd"/>
+  <xs:include schemaLocation="PolicyQuestions.xsd"/>
+  <xs:include schemaLocation="NotesOriginal.xsd"/>
+  <xs:include schemaLocation="QuoteNegotiationOriginal.xsd"/>
+  <xs:include schemaLocation="Policy.xsd"/>
+  <xs:include schemaLocation="Security.xsd"/>
+  <xs:include schemaLocation="SpecifiedItems.xsd"/>
+  <xs:include schemaLocation="BillingInfo.xsd"/>
+  <xs:include schemaLocation="FinancialDetails.xsd"/>
+  <xs:import namespace="dp.norwich-union.com" schemaLocation="ActionRqDp.xsd"/>
+  <xs:import namespace="dp.norwich-union.com" schemaLocation="ClientDp.xsd"/>
+  <xs:import namespace="dp.norwich-union.com" schemaLocation="PolicyDp.xsd"/>
+  <xs:import namespace="dp.norwich-union.com" schemaLocation="DwellingDp.xsd"/>
+  <xs:import namespace="dp.norwich-union.com" schemaLocation="PolicyQuestionsDp.xsd"/>
+  <!-- Top-level element use and definition start -->
+  <xs:element name="StoreMPConversionHomeNBQuoteRq" type="StoreMPConversionHomeNBQuoteRq"/>
+  <xs:complexType name="StoreMPConversionHomeNBQuoteRq">
+    <xs:sequence>
+      <xs:element name="Exceed" type="Exceed"/>
+      <xs:element name="OldRisk">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Policy" type="Policy" minOccurs="0"/>
+            <xs:element name="Client" type="Client" minOccurs="0" maxOccurs="10"/>
+            <xs:element name="Dwelling" type="Dwelling" minOccurs="0" maxOccurs="5"/>
+            <xs:element name="CoverNcd" type="CoverNcd" minOccurs="0" maxOccurs="10"/>
+            <xs:element name="ExcessExisting" type="ExcessExisting" minOccurs="0" maxOccurs="10"/>
+            <xs:element name="PolicyQuestions" type="PolicyQuestions" minOccurs="0" maxOccurs="50"/>
+            <xs:element name="NotesOriginal" type="NotesOriginal" minOccurs="0" maxOccurs="10"/>
+            <xs:element name="QuoteNegotiationOriginal" type="QuoteNegotiationOriginal" minOccurs="0" maxOccurs="10"/>
+            <xs:element name="CalculatedResult" type="CalculatedResult" maxOccurs="500"/>
+            <xs:element name="LossHistory" type="LossHistory" minOccurs="0" maxOccurs="20"/>
+            <xs:element name="ClauseResult" type="ClauseResult" minOccurs="0" maxOccurs="75"/>
+            <xs:element name="BankDetail" type="BankDetail" minOccurs="0"/>
+            <xs:element name="CreditCardDetail" type="CreditCardDetail" minOccurs="0"/>
+            <xs:element name="BillPlan" type="BillPlan" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NewRisk">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Policy" type="Policy"/>
+            <xs:element name="Client" type="Client" maxOccurs="10"/>
+            <xs:element name="Dwelling" type="Dwelling" maxOccurs="5"/>
+            <xs:element name="CoverNcd" type="CoverNcd" maxOccurs="10"/>
+            <xs:element name="ExcessExisting" type="ExcessExisting" maxOccurs="10"/>
+            <xs:element name="PolicyQuestions" type="PolicyQuestions" maxOccurs="50"/>
+            <xs:element name="NotesOriginal" type="NotesOriginal" minOccurs="0" maxOccurs="10"/>
+            <xs:element name="QuoteNegotiationOriginal" type="QuoteNegotiationOriginal" minOccurs="0" maxOccurs="10"/>
+            <xs:element name="CalculatedResult" type="CalculatedResult" minOccurs="0" maxOccurs="500"/>
+            <xs:element name="LossHistory" type="LossHistory" minOccurs="0" maxOccurs="20"/>
+            <xs:element name="ClauseResult" type="ClauseResult" minOccurs="0" maxOccurs="75"/>
+            <xs:element name="Billing" type="Billing" minOccurs="0"/>
+            <xs:element name="BankDetail" type="BankDetail" minOccurs="0"/>
+            <xs:element name="CreditCardDetail" type="CreditCardDetail" minOccurs="0"/>
+            <xs:element name="BillPlan" type="BillPlan"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

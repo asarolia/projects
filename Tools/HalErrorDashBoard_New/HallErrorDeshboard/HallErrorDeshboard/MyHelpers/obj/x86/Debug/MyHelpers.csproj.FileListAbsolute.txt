@@ -1,0 +1,33 @@
+C:\Amit\MyHelpers\bin\Debug\MyHelpers.dll
+C:\Amit\MyHelpers\bin\Debug\MyHelpers.pdb
+C:\Amit\MyHelpers\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Amit\MyHelpers\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Amit\MyHelpers\obj\x86\Debug\MyHelpers.Properties.Resource.resources
+C:\Amit\MyHelpers\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Amit\MyHelpers\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Amit\MyHelpers\obj\x86\Debug\MyHelpers.dll
+C:\Amit\MyHelpers\obj\x86\Debug\MyHelpers.pdb
+D:\MyProjects\CloningTool\MyHelpers\bin\Debug\MyHelpers.dll
+D:\MyProjects\CloningTool\MyHelpers\bin\Debug\MyHelpers.pdb
+D:\MyProjects\CloningTool\MyHelpers\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\MyProjects\CloningTool\MyHelpers\obj\x86\Debug\MyHelpers.Properties.Resource.resources
+D:\MyProjects\CloningTool\MyHelpers\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
+D:\MyProjects\CloningTool\MyHelpers\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+D:\MyProjects\CloningTool\MyHelpers\obj\x86\Debug\MyHelpers.dll
+D:\MyProjects\CloningTool\MyHelpers\obj\x86\Debug\MyHelpers.pdb
+D:\HalErrorDashBoard - Copy\MyHelpers\bin\Debug\MyHelpers.dll
+D:\HalErrorDashBoard - Copy\MyHelpers\bin\Debug\MyHelpers.pdb
+D:\HalErrorDashBoard - Copy\MyHelpers\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\HalErrorDashBoard - Copy\MyHelpers\obj\x86\Debug\MyHelpers.Properties.Resource.resources
+D:\HalErrorDashBoard - Copy\MyHelpers\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
+D:\HalErrorDashBoard - Copy\MyHelpers\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+D:\HalErrorDashBoard - Copy\MyHelpers\obj\x86\Debug\MyHelpers.dll
+D:\HalErrorDashBoard - Copy\MyHelpers\obj\x86\Debug\MyHelpers.pdb
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\MyHelpers\bin\Debug\MyHelpers.dll
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\MyHelpers\bin\Debug\MyHelpers.pdb
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\MyHelpers\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\MyHelpers\obj\x86\Debug\MyHelpers.Properties.Resource.resources
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\MyHelpers\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\MyHelpers\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\MyHelpers\obj\x86\Debug\MyHelpers.dll
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\MyHelpers\obj\x86\Debug\MyHelpers.pdb

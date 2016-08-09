@@ -1,0 +1,110 @@
+/*
+	=====================================
+	project: Distinctive
+	author:  Luka Cvrk (www.solucija.com)
+	-------------------------------------
+	2009. Solucija
+	=====================================
+*/
+
+*{margin:0;padding:0}:focus,:active {outline:0}img{border: 0}
+body { font: .8em Arial, Tahoma, Verdana; background: #fff url(../images/gradient.jpg) repeat-x; color: #777; }
+
+a { text-decoration: none; color: #B20F0F; }
+h1 { font-size: 1.4em; font-weight: normal; }
+	h1 a { color: #fff; font-size: 1.6em; }
+h2 { font-size: 1.2em; }
+h3 { font-size: 1.2em; background: #B00A0A url(../images/redbg.gif) repeat-x left bottom; padding: 6px 7px; color: #fff; font-weight: normal; margin: 0 0 15px; float: left; }
+h4 { margin: 0 0 15px; color: #555; font-weight: normal; font-size: 1.6em; font-weight: normal; }
+h5{color:#444;font-size:14px;font-weight:bold;margin-bottom:1em;border-bottom:1px solid #ccc;padding:3px 0;}h3 em{color:#999;font-size:11px;font-weight:normal;}
+p { clear: both; line-height: 1.64em; margin: 0 0 15px; }
+.line
+{
+	clear: both;
+	border-bottom: 2px inset #ddd;
+	margin: 0 0 45px;
+	
+}
+.clear { clear: both; }
+.content { width: 970px; margin: 0 auto; background-color:White; height:inherit; }
+	#top { color: #ccc; padding: 6px 20px 0; font-size: .84em; text-align: right; }
+	#logo { float: left; background:  padding: 100px 25px 15px; }
+		#logo h1 { text-shadow: 1px 1px 1px #7E0E0E; }
+	#menu { float: right; margin: 63px 20px 0; }
+		#menu li { display: inline; font-size: 1.3em; }
+			#menu li a { float: left; color: #808080; padding: 0 0 5px; margin: 0 0 0 55px; }
+			#menu li a:hover, #menu li.current a, #menu li a:focus { color: #000; border-bottom: 1px solid #ddd; }
+	#pitch { background: url(../images/monitor.gif) no-repeat right top; padding: 30px 350px 0 0; border-bottom: 1px solid #ddd; height: 210px; margin: 0 0 35px; }
+		#pitch h1 { font-size: 2.6em; color: #000; margin: 0 0 20px; }
+		#pitch h2 { line-height: 1.5em; }
+	.left { float: left; width: 630px; }	
+	.right { float: right; width: 250px; margin: 0 0 20px; }
+		.right h3 { background: #808080; font-size: .84em; }
+	.third { float: left; width: 296px; margin: 0 40px 20px 0; }
+		.last { margin-right: 0; }
+	#footer { clear: both; font-size: .84em; border-top: 1px solid #ddd; padding: 20px 0 0; }
+	.button
+{
+	background: #ff3300;
+	font-size: .84em;
+}
+.middle
+{
+	margin-left:30%;
+	margin-right:30%;
+}
+.panel
+{
+	padding-left:15%;
+}
+.leftTables
+{
+	float:left;
+	width:30%;
+}
+.middleQuery
+{
+	float:left;
+	padding:10px;
+	width:auto;
+}
+.divEditLeft
+{
+	width:100%;
+}
+.divEditRight
+{
+	width:100%;
+}
+
+.awesome_design
+{
+    background-position: #858585 url(/images/alert-overlay.png) repeat-x;
+    background: #858585 url(/images/alert-overlay.png) repeat-x;
+    display: inline-block;
+    font-family: Arial, Helvetica, Helvetica Neue, Verdana, sans-serif;
+    padding: 5px 10px 6px;
+    color: #fff;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+    text-decoration: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    position: relative;
+    cursor: pointer;
+    font-weight: bold;
+}
+.awesome_design:hover { background-color: #555; color: #fff; }
+ .awesome_design:active { top: 1px; }
+
+.Label
+{
+	margin: 0px auto;
+	padding: 0 0 0 0;	
+	font-family: Helvetica, Calibri, Arial, sans-serif;
+	font-size: 100%;
+	font-weight:bolder;
+	text-decoration:none;
+}

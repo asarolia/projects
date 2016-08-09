@@ -1,0 +1,66 @@
+﻿#sourcecontent pre,
+#sourcecontent div.code-box-n,
+#sourcecontent div.code-box {
+  font-family: 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Monaco, Courier, monospace;
+  /*white-space: pre;£/
+  /*width: 39.5em;*/
+  line-height: 1.4em;
+  margin: 1em 0;
+  border: 1px dashed #aaa8a8;
+  padding: 0.5em 0 0.3em 0.5em;
+  font-size: small;
+  color: #000;
+  overflow: auto;
+}
+#sourcecontent div.code-line {
+  white-space: pre;
+  /*width: 39.5em;*/
+}
+
+#sourcecontent div.code-type-comment {color:Green;  font-style:italic;  font-weight:bold;}
+#sourcecontent div.code-type-division {  color:Red;  font-weight:bold;}
+#sourcecontent div.code-type-section{  color:Blue;  font-weight:bold;}
+#sourcecontent div.code-type-paragraph {font-weight:bold;}
+#sourcecontent div.code-type-code {  color:black;}
+
+#sourcecontent div.hilight{    background:yellow;}
+
+#sourcecontent div.code-box {  background: #fff url(/img/cut.gif) no-repeat top right;}
+
+#sourcecontent div.code-box-n {
+  width: 33em;
+  padding-left: 0.3em;
+  border: 1px solid;
+  border-color: #666 #999;
+  background-color: #fff;
+}
+
+#sourcecontent div.code-box-n:hover {
+  border-color: #c30;
+}
+
+#sourcecontent div.code-box-n a { font-weight: normal; }
+#sourcecontent div.code-box-n a:focus,
+#sourcecontent div.code-box-n a:hover {
+  border-bottom: 1px solid #c00;
+}
+
+/* home page -- server uptime */
+
+#sourcecontent div.uptime {
+  white-space: pre;
+  width: 36em;
+  line-height: 1em;
+  margin: 1em 0;
+  border: 1px dotted #aaa8a8;
+  padding: 4px 0 4px 7px;
+  background-color: #fff;
+  overflow: auto;
+}
+
+#sourcecontent div.uptime code {
+  font-size: 100%;
+  color: #000;
+}
+
+/* css/code.css */    

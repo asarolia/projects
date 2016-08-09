@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RunDashboardModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RunDashboard.dbo.BatchData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="BatchData">
+    <Key>
+      <PropertyRef Name="Jobname" />
+      <PropertyRef Name="Job_Category" />
+      <PropertyRef Name="Job_Type" />
+      <PropertyRef Name="RecordDt" />
+    </Key>
+    <Property Name="Jobname" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Start_Date" Type="datetime" />
+    <Property Name="Start_Time" Type="int" />
+    <Property Name="Error_Date" Type="datetime" />
+    <Property Name="Error_Time" Type="int" />
+    <Property Name="Error_Code" Type="char" MaxLength="5" />
+    <Property Name="Restart_Date" Type="datetime" />
+    <Property Name="Restart_Time" Type="int" />
+    <Property Name="End_Date" Type="datetime" />
+    <Property Name="End_Time" Type="int" />
+    <Property Name="Time_Lost" Type="int" />
+    <Property Name="Comment" Type="varchar" MaxLength="60" />
+    <Property Name="Job_Category" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Job_Type" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="RecordDt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommentTable">
+    <Key>
+      <PropertyRef Name="CommentRecordDt" />
+    </Key>
+    <Property Name="RecordDt" Type="nchar" MaxLength="10" />
+    <Property Name="Type" Type="nchar" MaxLength="10" />
+    <Property Name="CommentRecordDt" Type="datetime" Nullable="false" />
+    <Property Name="RACFID" Type="char" MaxLength="8" />
+    <Property Name="CommentTitle" Type="varchar" MaxLength="50" />
+    <Property Name="CommentText" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RunDashboard.dbo.datatable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="datatable">
+    <Key>
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="Total" />
+      <PropertyRef Name="Processed" />
+      <PropertyRef Name="Unprocessed" />
+      <PropertyRef Name="Failed" />
+      <PropertyRef Name="RecordDt" />
+    </Key>
+    <Property Name="Type" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Total" Type="int" Nullable="false" />
+    <Property Name="Processed" Type="int" Nullable="false" />
+    <Property Name="Unprocessed" Type="int" Nullable="false" />
+    <Property Name="Failed" Type="int" Nullable="false" />
+    <Property Name="RecordDt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RunDashboard.dbo.deferdata' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="deferdata">
+    <Key>
+      <PropertyRef Name="Time_Defer" />
+      <PropertyRef Name="Time_Run" />
+      <PropertyRef Name="Delay" />
+      <PropertyRef Name="RecordDt" />
+    </Key>
+    <Property Name="Time_Defer" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="Time_Run" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="Delay" Type="int" Nullable="false" />
+    <Property Name="RecordDt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RunDashboard.dbo.DeferObjects' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DeferObjects">
+    <Key>
+      <PropertyRef Name="Object" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="Count" />
+      <PropertyRef Name="RecordDt" />
+    </Key>
+    <Property Name="Object" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Status" Type="nchar" MaxLength="1" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="RecordDt" Type="datetime" Nullable="false" />
+    <Property Name="Time" Type="nchar" MaxLength="30" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RunDashboard.dbo.FeedData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="FeedData">
+    <Key>
+      <PropertyRef Name="Feed_Type" />
+      <PropertyRef Name="Feed_Name" />
+      <PropertyRef Name="Processed" />
+      <PropertyRef Name="Success" />
+      <PropertyRef Name="Fail" />
+      <PropertyRef Name="RecordDt" />
+    </Key>
+    <Property Name="Feed_Type" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="Feed_Name" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Processed" Type="int" Nullable="false" />
+    <Property Name="Success" Type="int" Nullable="false" />
+    <Property Name="Fail" Type="int" Nullable="false" />
+    <Property Name="RecordDt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RunDashboard.dbo.HalErr' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="HalErr">
+    <Key>
+      <PropertyRef Name="Error_Ref" />
+      <PropertyRef Name="Day_O_Count" />
+      <PropertyRef Name="Day_T_Count" />
+      <PropertyRef Name="Day_Th_Count" />
+      <PropertyRef Name="Fail_Pgm_Name" />
+      <PropertyRef Name="Fail_Para_Name" />
+      <PropertyRef Name="RecordDt" />
+    </Key>
+    <Property Name="Error_Ref" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="Day_O_Count" Type="int" Nullable="false" />
+    <Property Name="Day_T_Count" Type="int" Nullable="false" />
+    <Property Name="Day_Th_Count" Type="int" Nullable="false" />
+    <Property Name="Fail_Pgm_Name" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Fail_Para_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RecordDt" Type="datetime" Nullable="false" />
+    <Property Name="Day_Fo_Count" Type="int" />
+    <Property Name="Day_Fi_Count" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'RunDashboard.dbo.InterfaceTable' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="InterfaceTable">
+          <Property Name="Interface" Type="char" MaxLength="10" />
+          <Property Name="Count" Type="int" />
+          <Property Name="MaxDate" Type="datetime" />
+          <Property Name="MinDate" Type="datetime" />
+          <Property Name="RecordDt" Type="datetime" />
+          <Property Name="Status" Type="nchar" MaxLength="1" />
+        </EntityType>-->
+  <EntityType Name="limittable">
+    <Key>
+      <PropertyRef Name="Ttype" />
+    </Key>
+    <Property Name="Ttype" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Failed_Threshold_Red" Type="int" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Red" Type="int" Nullable="false" />
+    <Property Name="Failed_Threshold_Amber" Type="int" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Amber" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RunDashboard.dbo.logindetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="logindetails">
+    <Key>
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="Password" />
+    </Key>
+    <Property Name="Username" Type="nchar" MaxLength="15" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RunDashboard.dbo.batchdata_view' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="batchdata_view">
+    <Key>
+      <PropertyRef Name="Jobname" />
+      <PropertyRef Name="Job_Category" />
+      <PropertyRef Name="Job_Type" />
+      <PropertyRef Name="RecordDt" />
+      <PropertyRef Name="Failed_Threshold_Red" />
+      <PropertyRef Name="Unprocess_Threshold_Red" />
+      <PropertyRef Name="Failed_Threshold_Amber" />
+      <PropertyRef Name="Unprocess_Threshold_Amber" />
+    </Key>
+    <Property Name="Jobname" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Start_Date" Type="datetime" />
+    <Property Name="Start_Time" Type="int" />
+    <Property Name="Error_Date" Type="datetime" />
+    <Property Name="Error_Time" Type="int" />
+    <Property Name="Error_Code" Type="char" MaxLength="5" />
+    <Property Name="Restart_Date" Type="datetime" />
+    <Property Name="Restart_Time" Type="int" />
+    <Property Name="End_Date" Type="datetime" />
+    <Property Name="End_Time" Type="int" />
+    <Property Name="Time_Lost" Type="int" />
+    <Property Name="Comment" Type="varchar" MaxLength="60" />
+    <Property Name="Job_Category" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Job_Type" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="RecordDt" Type="datetime" Nullable="false" />
+    <Property Name="Failed_Threshold_Red" Type="int" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Red" Type="int" Nullable="false" />
+    <Property Name="Failed_Threshold_Amber" Type="int" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Amber" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RunDashboard.dbo.datatable_view' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="datatable_view">
+    <Key>
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="Total" />
+      <PropertyRef Name="Processed" />
+      <PropertyRef Name="Unprocessed" />
+      <PropertyRef Name="Failed" />
+      <PropertyRef Name="RecordDt" />
+      <PropertyRef Name="Failed_Threshold_Red" />
+      <PropertyRef Name="Unprocess_Threshold_Red" />
+      <PropertyRef Name="Failed_Threshold_Amber" />
+      <PropertyRef Name="Unprocess_Threshold_Amber" />
+    </Key>
+    <Property Name="Type" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Total" Type="int" Nullable="false" />
+    <Property Name="Processed" Type="int" Nullable="false" />
+    <Property Name="Unprocessed" Type="int" Nullable="false" />
+    <Property Name="Failed" Type="int" Nullable="false" />
+    <Property Name="RecordDt" Type="datetime" Nullable="false" />
+    <Property Name="Failed_Threshold_Red" Type="int" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Red" Type="int" Nullable="false" />
+    <Property Name="Failed_Threshold_Amber" Type="int" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Amber" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RunDashboard.dbo.feeddata_view' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="feeddata_view">
+    <Key>
+      <PropertyRef Name="Feed_Type" />
+      <PropertyRef Name="Feed_Name" />
+      <PropertyRef Name="Processed" />
+      <PropertyRef Name="Success" />
+      <PropertyRef Name="Fail" />
+      <PropertyRef Name="RecordDt" />
+      <PropertyRef Name="Failed_Threshold_Red" />
+      <PropertyRef Name="Unprocess_Threshold_Red" />
+      <PropertyRef Name="Failed_Threshold_Amber" />
+      <PropertyRef Name="Unprocess_Threshold_Amber" />
+    </Key>
+    <Property Name="Feed_Type" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="Feed_Name" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Processed" Type="int" Nullable="false" />
+    <Property Name="Success" Type="int" Nullable="false" />
+    <Property Name="Fail" Type="int" Nullable="false" />
+    <Property Name="RecordDt" Type="datetime" Nullable="false" />
+    <Property Name="Failed_Threshold_Red" Type="int" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Red" Type="int" Nullable="false" />
+    <Property Name="Failed_Threshold_Amber" Type="int" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Amber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="RunDashboardModelStoreContainer">
+    <EntitySet Name="CommentTable" EntityType="Self.CommentTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="limittable" EntityType="Self.limittable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BatchData" EntityType="Self.BatchData" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [BatchData].[Jobname] AS [Jobname], 
+    [BatchData].[Start_Date] AS [Start_Date], 
+    [BatchData].[Start_Time] AS [Start_Time], 
+    [BatchData].[Error_Date] AS [Error_Date], 
+    [BatchData].[Error_Time] AS [Error_Time], 
+    [BatchData].[Error_Code] AS [Error_Code], 
+    [BatchData].[Restart_Date] AS [Restart_Date], 
+    [BatchData].[Restart_Time] AS [Restart_Time], 
+    [BatchData].[End_Date] AS [End_Date], 
+    [BatchData].[End_Time] AS [End_Time], 
+    [BatchData].[Time_Lost] AS [Time_Lost], 
+    [BatchData].[Comment] AS [Comment], 
+    [BatchData].[Job_Category] AS [Job_Category], 
+    [BatchData].[Job_Type] AS [Job_Type], 
+    [BatchData].[RecordDt] AS [RecordDt]
+    FROM [dbo].[BatchData] AS [BatchData]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="datatable" EntityType="Self.datatable" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [datatable].[Type] AS [Type], 
+    [datatable].[Total] AS [Total], 
+    [datatable].[Processed] AS [Processed], 
+    [datatable].[Unprocessed] AS [Unprocessed], 
+    [datatable].[Failed] AS [Failed], 
+    [datatable].[RecordDt] AS [RecordDt]
+    FROM [dbo].[datatable] AS [datatable]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="deferdata" EntityType="Self.deferdata" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [deferdata].[Time_Defer] AS [Time_Defer], 
+    [deferdata].[Time_Run] AS [Time_Run], 
+    [deferdata].[Delay] AS [Delay], 
+    [deferdata].[RecordDt] AS [RecordDt]
+    FROM [dbo].[deferdata] AS [deferdata]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DeferObjects" EntityType="Self.DeferObjects" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DeferObjects].[Object] AS [Object], 
+    [DeferObjects].[Status] AS [Status], 
+    [DeferObjects].[Count] AS [Count], 
+    [DeferObjects].[RecordDt] AS [RecordDt], 
+    [DeferObjects].[Time] AS [Time]
+    FROM [dbo].[DeferObjects] AS [DeferObjects]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FeedData" EntityType="Self.FeedData" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FeedData].[Feed_Type] AS [Feed_Type], 
+    [FeedData].[Feed_Name] AS [Feed_Name], 
+    [FeedData].[Processed] AS [Processed], 
+    [FeedData].[Success] AS [Success], 
+    [FeedData].[Fail] AS [Fail], 
+    [FeedData].[RecordDt] AS [RecordDt]
+    FROM [dbo].[FeedData] AS [FeedData]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="HalErr" EntityType="Self.HalErr" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [HalErr].[Error_Ref] AS [Error_Ref], 
+    [HalErr].[Day_O_Count] AS [Day_O_Count], 
+    [HalErr].[Day_T_Count] AS [Day_T_Count], 
+    [HalErr].[Day_Th_Count] AS [Day_Th_Count], 
+    [HalErr].[Fail_Pgm_Name] AS [Fail_Pgm_Name], 
+    [HalErr].[Fail_Para_Name] AS [Fail_Para_Name], 
+    [HalErr].[RecordDt] AS [RecordDt], 
+    [HalErr].[Day_Fo_Count] AS [Day_Fo_Count], 
+    [HalErr].[Day_Fi_Count] AS [Day_Fi_Count]
+    FROM [dbo].[HalErr] AS [HalErr]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="logindetails" EntityType="Self.logindetails" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [logindetails].[Username] AS [Username], 
+    [logindetails].[Password] AS [Password]
+    FROM [dbo].[logindetails] AS [logindetails]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="batchdata_view" EntityType="Self.batchdata_view" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [batchdata_view].[Jobname] AS [Jobname], 
+    [batchdata_view].[Start_Date] AS [Start_Date], 
+    [batchdata_view].[Start_Time] AS [Start_Time], 
+    [batchdata_view].[Error_Date] AS [Error_Date], 
+    [batchdata_view].[Error_Time] AS [Error_Time], 
+    [batchdata_view].[Error_Code] AS [Error_Code], 
+    [batchdata_view].[Restart_Date] AS [Restart_Date], 
+    [batchdata_view].[Restart_Time] AS [Restart_Time], 
+    [batchdata_view].[End_Date] AS [End_Date], 
+    [batchdata_view].[End_Time] AS [End_Time], 
+    [batchdata_view].[Time_Lost] AS [Time_Lost], 
+    [batchdata_view].[Comment] AS [Comment], 
+    [batchdata_view].[Job_Category] AS [Job_Category], 
+    [batchdata_view].[Job_Type] AS [Job_Type], 
+    [batchdata_view].[RecordDt] AS [RecordDt], 
+    [batchdata_view].[Failed_Threshold_Red] AS [Failed_Threshold_Red], 
+    [batchdata_view].[Unprocess_Threshold_Red] AS [Unprocess_Threshold_Red], 
+    [batchdata_view].[Failed_Threshold_Amber] AS [Failed_Threshold_Amber], 
+    [batchdata_view].[Unprocess_Threshold_Amber] AS [Unprocess_Threshold_Amber]
+    FROM [dbo].[batchdata_view] AS [batchdata_view]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="datatable_view" EntityType="Self.datatable_view" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [datatable_view].[Type] AS [Type], 
+    [datatable_view].[Total] AS [Total], 
+    [datatable_view].[Processed] AS [Processed], 
+    [datatable_view].[Unprocessed] AS [Unprocessed], 
+    [datatable_view].[Failed] AS [Failed], 
+    [datatable_view].[RecordDt] AS [RecordDt], 
+    [datatable_view].[Failed_Threshold_Red] AS [Failed_Threshold_Red], 
+    [datatable_view].[Unprocess_Threshold_Red] AS [Unprocess_Threshold_Red], 
+    [datatable_view].[Failed_Threshold_Amber] AS [Failed_Threshold_Amber], 
+    [datatable_view].[Unprocess_Threshold_Amber] AS [Unprocess_Threshold_Amber]
+    FROM [dbo].[datatable_view] AS [datatable_view]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="feeddata_view" EntityType="Self.feeddata_view" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [feeddata_view].[Feed_Type] AS [Feed_Type], 
+    [feeddata_view].[Feed_Name] AS [Feed_Name], 
+    [feeddata_view].[Processed] AS [Processed], 
+    [feeddata_view].[Success] AS [Success], 
+    [feeddata_view].[Fail] AS [Fail], 
+    [feeddata_view].[RecordDt] AS [RecordDt], 
+    [feeddata_view].[Failed_Threshold_Red] AS [Failed_Threshold_Red], 
+    [feeddata_view].[Unprocess_Threshold_Red] AS [Unprocess_Threshold_Red], 
+    [feeddata_view].[Failed_Threshold_Amber] AS [Failed_Threshold_Amber], 
+    [feeddata_view].[Unprocess_Threshold_Amber] AS [Unprocess_Threshold_Amber]
+    FROM [dbo].[feeddata_view] AS [feeddata_view]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

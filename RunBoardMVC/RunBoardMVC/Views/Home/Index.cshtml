@@ -1,0 +1,423 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@section includeJS{
+
+    @*this section will be used to render the view specific js*@
+    @Scripts.Render("~/Scripts/default.js");
+
+}
+<div class="hgroup">
+    <div class="hgrp1">
+        <p>
+            <b>Date :</b>  <!--<asp:label ID="seldate" runat="server"/>-->
+            <input type="date" id="seldate" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#" onclick="refresh_Click">GO</a>
+        </p>
+
+    </div>
+    <div class="hgrp2">
+        <a href="#" onclick="thresh_Click">Update Thresholds</a>
+
+    </div>
+
+</div>
+
+
+            <div class="polclaim">
+                <div class="pol">
+                    <h2 style="text-decoration:underline;">Policy Area</h2>
+                    <div class="poldata">
+                        @*<span class="datahdng">
+                            Print Status
+                        </span>*@
+                        <img src="~/Content/Images/print.png" class="datahdng" />
+                        <span class="chartimg">
+
+                            <canvas id="cnvs1" style="height:100px;width:100px;border:1px solid"></canvas>
+                        </span>
+                        <span class="spaces">&nbsp;&nbsp;&nbsp;</span>
+                        <span class="graphlink">
+                            <a href="#" onclick="graph_Click">Graph</a>
+
+                        </span>
+                        <span class="separator">
+                            &nbsp;|&nbsp;
+                        </span>
+                        <span class="detaillnk">
+                            <a href="#" onclick="detail_Click">Detail</a>
+                        </span>
+
+                    </div>
+                    <div class="poldata">
+                        @*<span class="datahdng">
+                            Oracle AR Processing
+                        </span>*@
+                        <img src="~/Content/Images/oracle.png" class="datahdng" />
+                        <span class="chartimg">
+
+                            <canvas id="cnvs2" style="height:100px;width:100px;border:1px solid"></canvas>
+                        </span>
+                        <span class="spaces">&nbsp;&nbsp;&nbsp;</span>
+                        <span class="graphlink">
+                            <a href="#" onclick="graph_Click">Graph</a>
+
+                        </span>
+                        <span class="separator">
+                            &nbsp;|&nbsp;
+                        </span>
+                        <span class="detaillnk">
+                            <a href="#" onclick="detail_Click">Detail</a>
+                        </span>
+
+                    </div>
+                    <div class="poldata">
+                        @*<span class="datahdng">
+                            Card Transactions
+                        </span>*@
+                        <img src="~/Content/Images/card.png" class="datahdng" />
+                        <span class="chartimg">
+
+                            <canvas id="cnvs3" style="height:100px;width:100px;border:1px solid"></canvas>
+                        </span>
+                        <span class="spaces">&nbsp;&nbsp;&nbsp;</span>
+                        <span class="graphlink">
+                            <a href="#" onclick="graph_Click">Graph</a>
+
+                        </span>
+                        <span class="separator">
+                            &nbsp;|&nbsp;
+                        </span>
+                        <span class="detaillnk">
+                            <a href="#" onclick="detail_Click">Detail</a>
+                        </span>
+
+                    </div>
+                    <div class="poldata">
+                        @*<span class="datahdng">
+                            Renewals
+                        </span>*@
+                        <img src="~/Content/Images/renewal.png" class="datahdng" />
+                        <span class="chartimg">
+
+                            <canvas id="cnvs4" style="height:100px;width:100px;border:1px solid"></canvas>
+                        </span>
+                        <span class="spaces">&nbsp;&nbsp;&nbsp;</span>
+                        <span class="graphlink">
+                            <a href="#" onclick="graph_Click">Graph</a>
+
+                        </span>
+                        <span class="separator">
+                            &nbsp;|&nbsp;
+                        </span>
+                        <span class="detaillnk">
+                            <a href="#" onclick="detail_Click">Detail</a>
+                        </span>
+
+                    </div>
+                    <div class="poldata">
+                        @*<span class="datahdng">
+                            Email Processing
+                        </span>*@
+                        <img src="~/Content/Images/email.png" class="datahdng" />
+                        <span class="chartimg">
+
+                            <canvas id="cnvs5" style="height:100px;width:100px;border:1px solid"></canvas>
+                        </span>
+                        <span class="spaces">&nbsp;&nbsp;&nbsp;</span>
+                        <span class="graphlink">
+                            <a href="#" onclick="graph_Click">Graph</a>
+
+                        </span>
+                        <span class="separator">
+                            &nbsp;|&nbsp;
+                        </span>
+                        <span class="detaillnk">
+                            <a href="#" onclick="detail_Click">Detail</a>
+                        </span>
+
+                    </div>
+                    <div class="poldata">
+                        @*<span class="datahdng">
+                            Triple Interface
+                        </span>*@
+                        <img src="~/Content/Images/ti.png" class="datahdng" />
+                        <span class="chartimg">
+
+                            <canvas id="cnvs6" style="height:100px;width:100px;border:1px solid"></canvas>
+                        </span>
+                        <span class="spaces">&nbsp;&nbsp;&nbsp;</span>
+                        <span class="graphlink">
+                            <a href="#" onclick="graph_Click">Graph</a>
+
+                        </span>
+                        <span class="separator">
+                            &nbsp;|&nbsp;
+                        </span>
+                        <span class="detaillnk">
+                            <a href="#" onclick="detail_Click">Detail</a>
+                        </span>
+
+                    </div>
+                    <div class="poldata">
+                        @*<span class="datahdng">
+                            MDM
+                        </span>*@
+                        <img src="~/Content/Images/mdm.png" class="datahdng" />
+                        <span class="chartimg">
+
+                            <canvas id="cnvs7" style="height:100px;width:100px;border:1px solid"></canvas>
+                        </span>
+                        <span class="spaces">&nbsp;&nbsp;&nbsp;</span>
+                        <span class="graphlink">
+                            <a href="#" onclick="graph_Click">Graph</a>
+
+                        </span>
+                        <span class="separator">
+                            &nbsp;|&nbsp;
+                        </span>
+                        <span class="detaillnk">
+                            <a href="#" onclick="detail_Click">Detail</a>
+                        </span>
+
+                    </div>
+                    <div class="poldata">
+                        @*<span class="datahdng">
+                            Data Feed
+                        </span>*@
+                        <img src="~/Content/Images/datafeed.png" class="datahdng" />
+                        <span class="chartimg">
+
+                            <canvas id="cnvs8" style="height:100px;width:100px;border:1px solid"></canvas>
+                        </span>
+                        <span class="spaces">&nbsp;&nbsp;&nbsp;</span>
+                        <span class="graphlink">
+                            <a id="hide3">Graph</a>
+
+                        </span>
+                        <span class="separator" id="hide4">
+                            &nbsp;|&nbsp;
+                        </span>
+                        <span class="detaillnk">
+                            <a href="#" onclick="detail_Click">Detail</a>
+                        </span>
+
+                    </div>
+
+                </div>
+                <div class="claim">
+                    <h2 style="text-decoration:underline;">Claims Area</h2>
+                    <div class="claimdata">
+                        @*<span class="datahdng">
+                            Pits
+                        </span>*@
+                        <img src="~/Content/Images/pits.png" class="datahdng" />
+                        <span class="chartimg">
+
+                            <canvas id="cnvs9" style="height:100px;width:100px;border:1px solid"></canvas>
+                        </span>
+                        <span class="spaces">&nbsp;&nbsp;&nbsp;</span>
+                        <span class="graphlink">
+                            <a href="#" onclick="graph_Click">Graph</a>
+
+                        </span>
+                        <span class="separator">
+                            &nbsp;|&nbsp;
+                        </span>
+                        <span class="detaillnk">
+                            <a href="#" onclick="detail_Click">Detail</a>
+                        </span>
+                    </div>
+                    <div class="claimdata">
+                        @*<span class="datahdng">
+                            Wami
+                        </span>*@
+                        <img src="~/Content/Images/wami.png" class="datahdng" />
+                        <span class="chartimg">
+
+                            <canvas id="cnvs10" style="height:100px;width:100px;border:1px solid"></canvas>
+                        </span>
+                        <span class="spaces">&nbsp;&nbsp;&nbsp;</span>
+                        <span class="graphlink">
+                            <a href="#" onclick="graph_Click">Graph</a>
+
+                        </span>
+                        <span class="separator">
+                            &nbsp;|&nbsp;
+                        </span>
+                        <span class="detaillnk">
+                            <a href="#" onclick="detail_Click">Detail</a>
+                        </span>
+                    </div>
+                    <div class="claimdata">
+                        @*<span class="datahdng">
+                            GFIF
+                        </span>*@
+                        <img src="~/Content/Images/gfif.png" class="datahdng" />
+                        <span class="chartimg">
+
+                            <canvas id="cnvs11" style="height:100px;width:100px;border:1px solid"></canvas>
+                        </span>
+                        <span class="spaces">&nbsp;&nbsp;&nbsp;</span>
+                        <span class="graphlink">
+                            <a href="#" onclick="graph_Click">Graph</a>
+
+                        </span>
+                        <span class="separator">
+                            &nbsp;|&nbsp;
+                        </span>
+                        <span class="detaillnk">
+                            <a href="#" onclick="detail_Click">Detail</a>
+                        </span>
+                    </div>
+                    <div class="claimdata">
+                        @*<span class="datahdng">
+                            ANOL
+                        </span>*@
+                        <img src="~/Content/Images/anol.png" class="datahdng" />
+                        <span class="chartimg">
+
+                            <canvas id="cnvs12" style="height:100px;width:100px;border:1px solid"></canvas>
+                        </span>
+                        <span class="spaces">&nbsp;&nbsp;&nbsp;</span>
+                        <span class="graphlink">
+                            <a href="#" onclick="graph_Click">Graph</a>
+
+                        </span>
+                        <span class="separator">
+                            &nbsp;|&nbsp;
+                        </span>
+                        <span class="detaillnk">
+                            <a href="#" onclick="detail_Click">Detail</a>
+                        </span>
+                    </div>
+                    <div class="claimdata">
+                        @*<span class="datahdng">
+                            CPL
+                        </span>*@
+                        <img src="~/Content/Images/cpl.png" class="datahdng" />
+                        <span class="chartimg">
+
+                            <canvas id="cnvs13" style="height:100px;width:100px;border:1px solid"></canvas>
+                        </span>
+                        <span class="spaces">&nbsp;&nbsp;&nbsp;</span>
+                        <span class="graphlink">
+                            <a id="hide1">Graph</a>
+
+                        </span>
+                        <span class="separator" id="hide2">
+                            &nbsp;|&nbsp;
+                        </span>
+                        <span class="detaillnk">
+                            <a href="#" onclick="detail_Click">Detail</a>
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="aside">
+                <div class="gen">
+                    <h2 style="text-decoration:underline;">Generic</h2>
+                    <div class="gendata">
+                        <div class="row">
+                            <div class="col-md-6">
+                                @*<span class="datahdng">
+                                    Batch Status
+                                </span>*@
+                                <img src="~/Content/Images/batchstatus.png" class="datahdng" />
+                                
+                                <span class="chartimg">
+
+                                    <canvas id="cnvs9" style="height:100px;width:100px;border:1px solid"></canvas>
+                                </span>
+                                <span class="spaces">&nbsp;&nbsp;&nbsp;</span>
+                                <span class="graphlink">
+                                    <a id="hide5">Graph</a>
+
+                                </span>
+                                <span class="separator" id="hide6">
+                                    &nbsp;|&nbsp;
+                                </span>
+                                <span class="gendetaillnk">
+                                    <a href="#" onclick="detail_Click">Detail</a>
+                                </span>
+
+                            </div>
+                            <div class="col-md-6">
+                               
+                                <img src="~/Content/Images/batchperf.png" class="datahdng" />
+
+                                <span class="chartimg">
+
+                                    <canvas id="cnvs10" style="height:100px;width:100px;border:1px solid"></canvas>
+                                </span>
+                                <span class="spaces">&nbsp;&nbsp;&nbsp;</span>
+                                <span class="graphlink">
+                                    <a id="hide7">Graph</a>
+
+                                </span>
+                                <span class="separator" id="hide8">
+                                    &nbsp;|&nbsp;
+                                </span>
+                               
+                                <span class="gendetaillnk">
+                                    <a href="#" onclick="detail_Click">Detail</a>
+                                </span>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <img src="~/Content/Images/defer.png" class="datahdng" />
+
+                                <span class="chartimg">
+
+                                    <canvas id="cnvs11" style="height:100px;width:100px;border:1px solid"></canvas>
+                                </span>
+                                <span class="spaces">&nbsp;&nbsp;&nbsp;</span>
+                                <span class="graphlink">
+                                    <a id="hide9">Graph</a>
+
+                                </span>
+                                <span class="separator" id="hide10">
+                                    &nbsp;|&nbsp;
+                                </span>
+
+                                <span class="gendetaillnk">
+                                    <a href="#" onclick="detail_Click">Detail</a>
+                                </span>
+
+                            </div>
+                            <div class="col-md-6">
+
+                                <img src="~/Content/Images/halerr.png" class="datahdng" />
+
+                                <span class="chartimg">
+
+                                    <canvas id="cnvs12" style="height:100px;width:100px;border:1px solid"></canvas>
+                                </span>
+                                <span class="spaces">&nbsp;&nbsp;&nbsp;</span>
+                                <span class="graphlink">
+                                    <a id="hide11">Graph</a>
+
+                                </span>
+                                <span class="separator" id="hide12">
+                                    &nbsp;|&nbsp;
+                                </span>
+
+                                <span class="gendetaillnk">
+                                    <a href="#" onclick="detail_Click">Detail</a>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RunDashboardModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CommentTable">
+    <Key>
+      <PropertyRef Name="CommentRecordDt" />
+    </Key>
+    <Property Name="RecordDt" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CommentRecordDt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RACFID" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="CommentTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CommentText" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="limittable">
+    <Key>
+      <PropertyRef Name="Ttype" />
+    </Key>
+    <Property Name="Ttype" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Failed_Threshold_Red" Type="Int32" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Red" Type="Int32" Nullable="false" />
+    <Property Name="Failed_Threshold_Amber" Type="Int32" Nullable="false" />
+    <Property Name="Unprocess_Threshold_Amber" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BatchData">
+    <Key>
+      <PropertyRef Name="Jobname" />
+      <PropertyRef Name="Job_Category" />
+      <PropertyRef Name="Job_Type" />
+      <PropertyRef Name="RecordDt" />
+    </Key>
+    <Property Name="Jobname" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Start_Time" Type="Int32" />
+    <Property Name="Error_Date" Type="DateTime" Precision="3" />
+    <Property Name="Error_Time" Type="Int32" />
+    <Property Name="Error_Code" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="Restart_Date" Type="DateTime" Precision="3" />
+    <Property Name="Restart_Time" Type="Int32" />
+    <Property Name="End_Date" Type="DateTime" Precision="3" />
+    <Property Name="End_Time" Type="Int32" />
+    <Property Name="Time_Lost" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Job_Category" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Job_Type" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="RecordDt" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="datatable">
+    <Key>
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="Total" />
+      <PropertyRef Name="Processed" />
+      <PropertyRef Name="Unprocessed" />
+      <PropertyRef Name="Failed" />
+      <PropertyRef Name="RecordDt" />
+    </Key>
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Total" Type="Int32" Nullable="false" />
+    <Property Name="Processed" Type="Int32" Nullable="false" />
+    <Property Name="Unprocessed" Type="Int32" Nullable="false" />
+    <Property Name="Failed" Type="Int32" Nullable="false" />
+    <Property Name="RecordDt" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="deferdata">
+    <Key>
+      <PropertyRef Name="Time_Defer" />
+      <PropertyRef Name="Time_Run" />
+      <PropertyRef Name="Delay" />
+      <PropertyRef Name="RecordDt" />
+    </Key>
+    <Property Name="Time_Defer" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Time_Run" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Delay" Type="Int32" Nullable="false" />
+    <Property Name="RecordDt" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="DeferObject">
+    <Key>
+      <PropertyRef Name="Object" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="Count" />
+      <PropertyRef Name="RecordDt" />
+    </Key>
+    <Property Name="Object" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="RecordDt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Time" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="FeedData">
+    <Key>
+      <PropertyRef Name="Feed_Type" />
+      <PropertyRef Name="Feed_Name" />
+      <PropertyRef Name="Processed" />
+      <PropertyRef Name="Success" />
+      <PropertyRef Name="Fail" />
+      <PropertyRef Name="RecordDt" />
+    </Key>
+    <Property Name="Feed_Type" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Feed_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Processed" Type="Int32" Nullable="false" />
+    <Property Name="Success" Type="Int32" Nullable="false" />
+    <Property Name="Fail" Type="Int32" Nullable="false" />
+    <Property Name="RecordDt" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="HalErr">
+    <Key>
+      <PropertyRef Name="Error_Ref" />
+      <PropertyRef Name="Day_O_Count" />
+      <PropertyRef Name="Day_T_Count" />
+      <PropertyRef Name="Day_Th_Count" />
+      <PropertyRef Name="Fail_Pgm_Name" />
+      <PropertyRef Name="Fail_Para_Name" />
+      <PropertyRef Name="RecordDt" />
+    </Key>
+    <Property Name="Error_Ref" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Day_O_Count" Type="Int32" Nullable="false" />
+    <Property Name="Day_T_Count" Type="Int32" Nullable="false" />
+    <Property Name="Day_Th_Count" Type="Int32" Nullable="false" />
+    <Property Name="Fail_Pgm_Name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fail_Para_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RecordDt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Day_Fo_Count" Type="Int32" />
+    <Property Name="Day_Fi_Count" Type="Int32" />
+  </EntityType>
+  <EntityType Name="logindetail">
+    <Key>
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="Password" />
+    </Key>
+    <Property Name="Username" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="RunDashboardEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CommentTables" EntityType="Self.CommentTable" />
+    <EntitySet Name="limittables" EntityType="Self.limittable" />
+    <EntitySet Name="BatchDatas" EntityType="Self.BatchData" />
+    <EntitySet Name="datatables" EntityType="Self.datatable" />
+    <EntitySet Name="deferdatas" EntityType="Self.deferdata" />
+    <EntitySet Name="DeferObjects" EntityType="Self.DeferObject" />
+    <EntitySet Name="FeedDatas" EntityType="Self.FeedData" />
+    <EntitySet Name="HalErrs" EntityType="Self.HalErr" />
+    <EntitySet Name="logindetails" EntityType="Self.logindetail" />
+  </EntityContainer>
+</Schema>

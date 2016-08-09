@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RunDashboardModelStoreContainer" CdmEntityContainer="RunDashboardEntities">
+    <EntitySetMapping Name="CommentTables">
+      <EntityTypeMapping TypeName="RunDashboardModel.CommentTable">
+        <MappingFragment StoreEntitySet="CommentTable">
+          <ScalarProperty Name="RecordDt" ColumnName="RecordDt" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="CommentRecordDt" ColumnName="CommentRecordDt" />
+          <ScalarProperty Name="RACFID" ColumnName="RACFID" />
+          <ScalarProperty Name="CommentTitle" ColumnName="CommentTitle" />
+          <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="limittables">
+      <EntityTypeMapping TypeName="RunDashboardModel.limittable">
+        <MappingFragment StoreEntitySet="limittable">
+          <ScalarProperty Name="Ttype" ColumnName="Ttype" />
+          <ScalarProperty Name="Failed_Threshold_Red" ColumnName="Failed_Threshold_Red" />
+          <ScalarProperty Name="Unprocess_Threshold_Red" ColumnName="Unprocess_Threshold_Red" />
+          <ScalarProperty Name="Failed_Threshold_Amber" ColumnName="Failed_Threshold_Amber" />
+          <ScalarProperty Name="Unprocess_Threshold_Amber" ColumnName="Unprocess_Threshold_Amber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="datatable_view">
+      <EntityTypeMapping TypeName="RunDashboardModel.datatable_view">
+        <MappingFragment StoreEntitySet="datatable_view">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Processed" ColumnName="Processed" />
+          <ScalarProperty Name="Unprocessed" ColumnName="Unprocessed" />
+          <ScalarProperty Name="Failed" ColumnName="Failed" />
+          <ScalarProperty Name="RecordDt" ColumnName="RecordDt" />
+          <ScalarProperty Name="Failed_Threshold_Red" ColumnName="Failed_Threshold_Red" />
+          <ScalarProperty Name="Unprocess_Threshold_Red" ColumnName="Unprocess_Threshold_Red" />
+          <ScalarProperty Name="Failed_Threshold_Amber" ColumnName="Failed_Threshold_Amber" />
+          <ScalarProperty Name="Unprocess_Threshold_Amber" ColumnName="Unprocess_Threshold_Amber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="feeddata_view">
+      <EntityTypeMapping TypeName="RunDashboardModel.feeddata_view">
+        <MappingFragment StoreEntitySet="feeddata_view">
+          <ScalarProperty Name="Feed_Type" ColumnName="Feed_Type" />
+          <ScalarProperty Name="Feed_Name" ColumnName="Feed_Name" />
+          <ScalarProperty Name="Processed" ColumnName="Processed" />
+          <ScalarProperty Name="Success" ColumnName="Success" />
+          <ScalarProperty Name="Fail" ColumnName="Fail" />
+          <ScalarProperty Name="RecordDt" ColumnName="RecordDt" />
+          <ScalarProperty Name="Failed_Threshold_Red" ColumnName="Failed_Threshold_Red" />
+          <ScalarProperty Name="Unprocess_Threshold_Red" ColumnName="Unprocess_Threshold_Red" />
+          <ScalarProperty Name="Failed_Threshold_Amber" ColumnName="Failed_Threshold_Amber" />
+          <ScalarProperty Name="Unprocess_Threshold_Amber" ColumnName="Unprocess_Threshold_Amber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

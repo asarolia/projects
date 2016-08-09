@@ -1,0 +1,11 @@
+﻿@model DML.Generator.Web.Models.FileUploadViewModel
+@using DML.Generator.Domain
+@if (Model.sheetInformation != null && Model.sheetInformation.Count > 0)
+{ 
+    <div id="serviceList">
+            @foreach (ExcelSheetInformation sheetInfo in Model.sheetInformation)
+            {
+                <span class="eddtio">@sheetInfo.SheetName - @sheetInfo.TableName - @sheetInfo.HostDMLName - @sheetInfo.FEDMlName</span>
+            }
+        </div>
+}

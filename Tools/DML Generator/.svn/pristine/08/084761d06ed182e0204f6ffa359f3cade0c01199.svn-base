@@ -1,0 +1,132 @@
+﻿@model DML.Generator.Web.Models.FileUploadViewModel
+@using DML.Generator.Domain
+@if (Model != null && Model.DMLInfo != null && Model.DMLInfo.Count > 0)
+{ 
+    <div class= "bluebox" id="download">
+       <h4>Download DMLs</h4>
+            <div class="message inblock">
+                Please click on download buttons to download DML Files.
+            </div>
+             <div class= "inblock">
+                <div class= "block">
+                    @Html.ActionLink("Download FE DML", "DownloadDML", "Home", new { id = "FE" }, new { @class = "button medium green" })
+                </div>
+                <div class= "block">
+                    @Html.ActionLink("Download HOST DML", "DownloadDML", "Home", new { id = "HOST" }, new { @class = "button medium green" })
+                </div>
+            </div>
+    </div>
+    <div class = " bluebox" id= "dowloadError" style="display:none">
+           <div class="tempMessage">
+            Please correct the following error and upload the sheet again.
+           </div>
+        </div>
+    <div class="bluebox">
+    <div class= "block">
+    @if (!Model.HasErrors)
+    {
+        <div id="verifyBlock">
+        <div class="message inblock">
+            Please click on Verify if following result is correct.
+        </div>
+        <div class= "inblock">
+            <input type="submit" name ="Verify" value="Verify" id="Verify" class="button medium green"/>
+        </div>
+        </div>
+    }
+    else
+    { 
+        <div class="message inblock redMessage">
+            Please correct the following errors and upload the sheet again.
+        </div>
+        <div class= "inblock">
+        </div>
+    }
+
+    </div>
+    <div class = "block">
+    <div class="sheetInfoHeader">
+        <span class="cellContent">Sheet Name</span>
+            <span class="cellContent">Exceed Table Name</span>
+            <span class="cellContent">Host DML Name</span>
+            <span class="cellContent">FE DML Name</span>
+            <span class="cellContent">Status</span>
+        </div>
+    @foreach (DMLInfo Info in Model.DMLInfo)
+    {
+        if (!Info.groupingIndicator)
+        {
+            <div class="sheetInfo" id="@Info.SheetData.Name">
+                <div class="messageInfo information">
+                <span class="cellContent">@Info.SheetData.Name</span>
+                <span class="cellContent">@Info.SheetData.TableName</span>
+                <span class="cellContent">@Info.HostDMLName</span>
+                <span class="cellContent">@Info.FEDMLName</span>
+                @if (string.IsNullOrEmpty(Info.HostDMLName) && string.IsNullOrEmpty(Info.FEDMLName))
+                {
+                    <span class="cellContent warning">Host and FE DML name missing.</span>
+                }
+            
+                @if (string.IsNullOrEmpty(Info.HostDMLName) && !string.IsNullOrEmpty(Info.FEDMLName))
+                {
+                    <span class="cellContent warning">Host DML name missing.</span>
+                }
+            
+                @if (!string.IsNullOrEmpty(Info.HostDMLName) && string.IsNullOrEmpty(Info.FEDMLName))
+                {
+                    <span class="cellContent warning">FE DML name missing.</span>
+                }
+            
+                @if (!string.IsNullOrEmpty(Info.HostDMLName) && !string.IsNullOrEmpty(Info.FEDMLName))
+                {
+                    <span class="cellContent success">Initial verification passed.</span>
+                }
+                </div>
+                <div class="messageInfo errorMessage">
+                </div>
+            </div>
+        }
+        else
+        {
+            <div id="@Info.SheetData.Name">
+            @foreach (KeyValuePair<string, string> keyVal in Info.GroupHostDMLName)
+            {
+                <div class="sheetInfo" id="@string.Format("{0}-{1}", Info.SheetData.Name, keyVal.Value)">
+                    <div class="messageInfo information">
+                    <span class="cellContent">@Info.SheetData.Name</span>
+                    <span class="cellContent">@Info.SheetData.TableName</span>
+                    <span class="cellContent">@keyVal.Value</span>
+                    <span class="cellContent">@Info.FEDMLName</span>
+                    @if (string.IsNullOrEmpty(keyVal.Value) && string.IsNullOrEmpty(Info.FEDMLName))
+                    {
+                        <span class="cellContent warning">Host and FE DML name missing.</span>
+                    }
+            
+                    @if (string.IsNullOrEmpty(keyVal.Value) && !string.IsNullOrEmpty(Info.FEDMLName))
+                    {
+                        <span class="cellContent warning">Host DML name missing.</span>
+                    }
+            
+                    @if (!string.IsNullOrEmpty(keyVal.Value) && string.IsNullOrEmpty(Info.FEDMLName))
+                    {
+                        <span class="cellContent warning">FE DML name missing.</span>
+                    }
+            
+                    @if (!string.IsNullOrEmpty(keyVal.Value) && !string.IsNullOrEmpty(Info.FEDMLName))
+                    {
+                        <span class="cellContent success">Initial verification passed.</span>
+                    }
+                    </div>
+                    
+                </div>
+            }
+            <div class="messageInfo errorMessage">
+            </div>
+            </div>
+        }
+    }
+    </div>
+    </div>
+}
+
+

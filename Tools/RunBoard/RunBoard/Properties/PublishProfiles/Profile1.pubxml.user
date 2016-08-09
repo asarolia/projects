@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile>2015-01-13T10:23:15.5272383+00:00</TimeStampOfAssociatedLegacyPublishXmlFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="About.aspx">
+      <publishTime>02/04/2014 08:20:04</publishTime>
+    </File>
+    <File Include="Account/ChangePassword.aspx">
+      <publishTime>02/04/2014 08:20:04</publishTime>
+    </File>
+    <File Include="Account/ChangePasswordSuccess.aspx">
+      <publishTime>02/04/2014 08:20:04</publishTime>
+    </File>
+    <File Include="Account/Login.aspx">
+      <publishTime>06/20/2014 06:01:48</publishTime>
+    </File>
+    <File Include="Account/Register.aspx">
+      <publishTime>02/04/2014 08:20:04</publishTime>
+    </File>
+    <File Include="Account/Web.config">
+      <publishTime>02/04/2014 08:20:04</publishTime>
+    </File>
+    <File Include="BatchDetail.aspx">
+      <publishTime>08/21/2014 14:57:26</publishTime>
+    </File>
+    <File Include="BatchPDetail.aspx">
+      <publishTime>08/21/2014 11:56:50</publishTime>
+    </File>
+    <File Include="bin/AjaxControlToolkit.dll">
+      <publishTime>04/17/2014 08:10:41</publishTime>
+    </File>
+    <File Include="bin/AjaxMin.dll">
+      <publishTime>04/17/2014 07:52:57</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.Edm.resources.dll">
+      <publishTime>04/17/2014 07:52:58</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.OData.resources.dll">
+      <publishTime>04/17/2014 07:52:58</publishTime>
+    </File>
+    <File Include="bin/de/System.Spatial.resources.dll">
+      <publishTime>04/17/2014 07:52:57</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.Edm.resources.dll">
+      <publishTime>04/17/2014 07:52:58</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.OData.resources.dll">
+      <publishTime>04/17/2014 07:52:58</publishTime>
+    </File>
+    <File Include="bin/es/System.Spatial.resources.dll">
+      <publishTime>04/17/2014 07:52:57</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.Edm.resources.dll">
+      <publishTime>04/17/2014 07:52:58</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.OData.resources.dll">
+      <publishTime>04/17/2014 07:52:58</publishTime>
+    </File>
+    <File Include="bin/fr/System.Spatial.resources.dll">
+      <publishTime>04/17/2014 07:52:57</publishTime>
+    </File>
+    <File Include="bin/HtmlAgilityPack.dll">
+      <publishTime>04/17/2014 07:52:57</publishTime>
+    </File>
+    <File Include="bin/HtmlAgilityPack.pdb">
+      <publishTime>04/17/2014 12:22:57</publishTime>
+    </File>
+    <File Include="bin/HtmlAgilityPack.xml">
+      <publishTime>04/17/2014 12:22:57</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.Edm.resources.dll">
+      <publishTime>04/17/2014 07:52:58</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.OData.resources.dll">
+      <publishTime>04/17/2014 07:52:58</publishTime>
+    </File>
+    <File Include="bin/it/System.Spatial.resources.dll">
+      <publishTime>04/17/2014 07:52:57</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.Edm.resources.dll">
+      <publishTime>04/17/2014 07:52:58</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.OData.resources.dll">
+      <publishTime>04/17/2014 07:52:58</publishTime>
+    </File>
+    <File Include="bin/ja/System.Spatial.resources.dll">
+      <publishTime>04/17/2014 07:52:57</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.Edm.resources.dll">
+      <publishTime>04/17/2014 07:52:58</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.OData.resources.dll">
+      <publishTime>04/17/2014 07:52:59</publishTime>
+    </File>
+    <File Include="bin/ko/System.Spatial.resources.dll">
+      <publishTime>04/17/2014 07:52:57</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.Edm.dll">
+      <publishTime>04/17/2014 07:52:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.Edm.xml">
+      <publishTime>04/17/2014 12:22:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.OData.dll">
+      <publishTime>04/17/2014 07:52:59</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.OData.xml">
+      <publishTime>04/17/2014 12:22:59</publishTime>
+    </File>
+    <File Include="bin/Microsoft.WindowsAzure.Configuration.dll">
+      <publishTime>04/17/2014 07:52:59</publishTime>
+    </File>
+    <File Include="bin/Microsoft.WindowsAzure.Storage.dll">
+      <publishTime>04/17/2014 07:52:59</publishTime>
+    </File>
+    <File Include="bin/Microsoft.WindowsAzure.Storage.pdb">
+      <publishTime>04/17/2014 12:22:59</publishTime>
+    </File>
+    <File Include="bin/Microsoft.WindowsAzure.Storage.xml">
+      <publishTime>04/17/2014 12:22:59</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.Edm.resources.dll">
+      <publishTime>04/17/2014 07:52:58</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.OData.resources.dll">
+      <publishTime>04/17/2014 07:52:59</publishTime>
+    </File>
+    <File Include="bin/ru/System.Spatial.resources.dll">
+      <publishTime>04/17/2014 07:52:57</publishTime>
+    </File>
+    <File Include="bin/RunBoard.dll">
+      <publishTime>06/27/2016 15:22:49</publishTime>
+    </File>
+    <File Include="bin/RunBoard.pdb">
+      <publishTime>01/13/2015 15:52:21</publishTime>
+    </File>
+    <File Include="bin/System.Spatial.dll">
+      <publishTime>04/17/2014 07:52:57</publishTime>
+    </File>
+    <File Include="bin/System.Spatial.xml">
+      <publishTime>04/17/2014 12:22:57</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.Edm.resources.dll">
+      <publishTime>04/17/2014 07:52:58</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.OData.resources.dll">
+      <publishTime>04/17/2014 07:52:59</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Spatial.resources.dll">
+      <publishTime>04/17/2014 07:52:57</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.Edm.resources.dll">
+      <publishTime>04/17/2014 07:52:58</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.OData.resources.dll">
+      <publishTime>04/17/2014 07:52:59</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/System.Spatial.resources.dll">
+      <publishTime>04/17/2014 07:52:57</publishTime>
+    </File>
+    <File Include="Comments.aspx">
+      <publishTime>12/26/2014 10:29:12</publishTime>
+    </File>
+    <File Include="cpldetail.aspx">
+      <publishTime>08/26/2014 07:15:06</publishTime>
+    </File>
+    <File Include="datepage.aspx">
+      <publishTime>05/15/2016 09:24:53</publishTime>
+    </File>
+    <File Include="Default.aspx">
+      <publishTime>05/15/2016 11:18:46</publishTime>
+    </File>
+    <File Include="DeferDetail.aspx">
+      <publishTime>05/18/2016 14:52:29</publishTime>
+    </File>
+    <File Include="Detail.aspx">
+      <publishTime>08/28/2014 07:50:21</publishTime>
+    </File>
+    <File Include="Detail1.aspx">
+      <publishTime>11/11/2014 05:42:20</publishTime>
+    </File>
+    <File Include="Detail2.aspx">
+      <publishTime>08/28/2014 09:23:16</publishTime>
+    </File>
+    <File Include="Detailv.aspx">
+      <publishTime>08/18/2014 12:14:51</publishTime>
+    </File>
+    <File Include="feeddetail.aspx">
+      <publishTime>06/27/2016 15:15:49</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>02/04/2014 08:20:05</publishTime>
+    </File>
+    <File Include="Graph.aspx">
+      <publishTime>11/19/2014 05:36:03</publishTime>
+    </File>
+    <File Include="Graphrnwl.aspx">
+      <publishTime>08/19/2014 14:38:18</publishTime>
+    </File>
+    <File Include="Graphv.aspx">
+      <publishTime>08/19/2014 14:45:51</publishTime>
+    </File>
+    <File Include="HalDetail.aspx">
+      <publishTime>05/15/2016 07:04:13</publishTime>
+    </File>
+    <File Include="Images/bg1.jpeg">
+      <publishTime>06/24/2014 05:57:47</publishTime>
+    </File>
+    <File Include="Images/bg3.jpeg">
+      <publishTime>06/24/2014 05:57:47</publishTime>
+    </File>
+    <File Include="Images/bg4.jpeg">
+      <publishTime>06/24/2014 05:57:47</publishTime>
+    </File>
+    <File Include="Images/Calendar_scheduleHS.png">
+      <publishTime>04/17/2014 07:30:22</publishTime>
+    </File>
+    <File Include="Images/green_yellow.jpg">
+      <publishTime>07/24/2014 12:35:15</publishTime>
+    </File>
+    <File Include="Images/header-background.png">
+      <publishTime>06/23/2014 15:06:35</publishTime>
+    </File>
+    <File Include="Images/header-background1.png">
+      <publishTime>07/24/2014 12:35:36</publishTime>
+    </File>
+    <File Include="Images/headerbg1.png">
+      <publishTime>06/24/2014 09:56:43</publishTime>
+    </File>
+    <File Include="Images/logo.png">
+      <publishTime>06/24/2014 09:40:20</publishTime>
+    </File>
+    <File Include="Images/web_page_wood_background.jpeg">
+      <publishTime>06/09/2014 09:47:21</publishTime>
+    </File>
+    <File Include="interfacedetail.aspx">
+      <publishTime>05/15/2016 11:37:04</publishTime>
+    </File>
+    <File Include="IntfTriggerDetail.aspx">
+      <publishTime>08/12/2014 07:14:29</publishTime>
+    </File>
+    <File Include="Login.aspx">
+      <publishTime>07/24/2014 12:22:13</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>04/17/2014 07:53:16</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.4.1-vsdoc.js">
+      <publishTime>02/04/2014 08:20:04</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.4.1.js">
+      <publishTime>02/04/2014 08:20:04</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.4.1.min.js">
+      <publishTime>12/16/2014 09:51:11</publishTime>
+    </File>
+    <File Include="Scripts/print.js">
+      <publishTime>04/26/2014 04:48:09</publishTime>
+    </File>
+    <File Include="Services.aspx">
+      <publishTime>07/24/2014 12:26:54</publishTime>
+    </File>
+    <File Include="Site.Master">
+      <publishTime>08/25/2014 07:05:28</publishTime>
+    </File>
+    <File Include="Styles/Site.css">
+      <publishTime>08/26/2014 06:46:22</publishTime>
+    </File>
+    <File Include="testui.aspx">
+      <publishTime>06/25/2014 07:30:17</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/27/2016 15:22:51</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

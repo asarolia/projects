@@ -1,0 +1,7 @@
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\obj\Debug\ResolveAssemblyReference.cache
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\bin\HallErrorDeshboard.dll
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\bin\HallErrorDeshboard.pdb
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\obj\Debug\HallErrorDeshboard.dll
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\obj\Debug\HallErrorDeshboard.pdb
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\bin\ICSharpCode.SharpZipLib.dll
+C:\HalErrorDashBoard_New\HallErrorDeshboard\HallErrorDeshboard\bin\MyHelpers.pdb

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C17510BD-8398-45B0-9A35-4900F9D4B7D1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyHelpers</RootNamespace>
+    <AssemblyName>MyHelpers</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App\AppDataContext.cs" />
+    <Compile Include="Command\CommandList.cs" />
+    <Compile Include="Command\DataSetCommand.cs" />
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="DatabaseUtilities\DownloadDataUsingConfig.cs" />
+    <Compile Include="DatabaseUtilities\DownloadFactory.cs" />
+    <Compile Include="DatabaseUtilities\IDownloadData.cs" />
+    <Compile Include="DatabaseUtilities\TableEntity.cs" />
+    <Compile Include="Database\DatabaseFactory.cs" />
+    <Compile Include="Database\DB2Shadow.cs" />
+    <Compile Include="DatabaseUtilities\ExceedPolicy.cs" />
+    <Compile Include="Database\IDBConnect.cs" />
+    <Compile Include="Database\PolicyDataHelper.cs" />
+    <Compile Include="DatabaseUtilities\RelataionalDatabaseConfig.cs" />
+    <Compile Include="DataSet\ApplyDatasetRules.cs" />
+    <Compile Include="DataSet\DataSetHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataSet\DataSetToExcel.cs" />
+    <Compile Include="Entities\DownloadStatus.cs" />
+    <Compile Include="Entities\ProductList.cs" />
+    <Compile Include="Excel\ExcelFormat.cs" />
+    <Compile Include="Excel\IFormat.cs" />
+    <Compile Include="Excel\XSLTFormat.cs" />
+    <Compile Include="Helpers\HelperSupportData.cs" />
+    <Compile Include="Mainframe\AlchemistModules.cs" />
+    <Compile Include="Mainframe\CompositeJCLTasks.cs" />
+    <Compile Include="Mainframe\EndeavorAccess.cs" />
+    <Compile Include="Mainframe\FtpClient.cs" />
+    <Compile Include="Mainframe\JCLClient.cs" />
+    <Compile Include="Mainframe\MainframeFTPClient.cs" />
+    <Compile Include="Mainframe\ModuleEntry.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Test\ITesting.cs" />
+    <Compile Include="Test\RXUORRNS.cs" />
+    <Compile Include="Test\TestData.cs" />
+    <Compile Include="Test\TestDataPool.cs" />
+    <Compile Include="Test\TestResult.cs" />
+    <Compile Include="Utilities\CacheFileReader.cs" />
+    <Compile Include="Utilities\Compress.cs" />
+    <Compile Include="Utilities\Debug.cs" />
+    <Compile Include="Utilities\EmbeddedResource.cs" />
+    <Compile Include="Utilities\MyParameters.cs" />
+    <Compile Include="Utilities\ObjectPool.cs" />
+    <Compile Include="Utilities\Serialization.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\..\..\Devendar\GoogleCode\ProductCustomisation\WebSerivces\Bin\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ConfigurationFiles\Rules\EffectiveDate.txt" />
+    <EmbeddedResource Include="Properties\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ConfigurationFiles\PolicyRelation.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ConfigurationFiles\Excel\ExcelHeader.txt" />
+    <EmbeddedResource Include="ConfigurationFiles\default\QueryBuilder.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ConfigurationFiles\Exceed\ProductList.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="bin\Debug\MyHelpers.dll" />
+    <Content Include="bin\Debug\MyHelpers.pdb" />
+    <Content Include="bin\Release\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="bin\Release\MyHelpers.dll" />
+    <Content Include="bin\Release\MyHelpers.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ConfigurationFiles\Rules\ExpirationDate.txt" />
+    <EmbeddedResource Include="ConfigurationFiles\Rules\MasterCompany.txt" />
+    <EmbeddedResource Include="ConfigurationFiles\Rules\Product.txt" />
+    <EmbeddedResource Include="ConfigurationFiles\Rules\Scheme.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

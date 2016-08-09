@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Drag and Drop sample</title>
+	<meta charset="utf-8" />
+    <style>
+        div{
+            height : 500px;
+            border : 1px solid green;
+            width : 500px;  
+   
+        }
+    </style>
+    <script src="scripts/dragndrop.js"></script>
+   
+</head>
+<body>
+    <div id="dropframe" ondrop="ondrop_handle(event)" ondragover="ondragover_handle(event)">
+
+    </div>
+   
+    <br />
+    <br />
+
+    <img id="sunset" src="images/sunset.jpg" draggable="true" ondragstart="allowDrag(event)" />
+    
+
+</body>
+</html>

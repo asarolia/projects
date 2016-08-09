@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DefectTrackerModelStoreContainer" CdmEntityContainer="DefectTrackerEntities">
+    <EntitySetMapping Name="MasterErrors">
+      <EntityTypeMapping TypeName="DefectTrackerModel.MasterError">
+        <MappingFragment StoreEntitySet="MasterError">
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="ErrorId" ColumnName="ErrorId" />
+          <ScalarProperty Name="ErrorText" ColumnName="ErrorText" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="StatusCd" ColumnName="StatusCd" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

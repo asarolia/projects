@@ -1,0 +1,12 @@
+c:\users\asarolia\documents\visual studio 2015\Projects\FillTSA\FillTSA\bin\Debug\FillTSA.exe.config
+c:\users\asarolia\documents\visual studio 2015\Projects\FillTSA\FillTSA\bin\Debug\FillTSA.exe
+c:\users\asarolia\documents\visual studio 2015\Projects\FillTSA\FillTSA\bin\Debug\FillTSA.pdb
+c:\users\asarolia\documents\visual studio 2015\Projects\FillTSA\FillTSA\bin\Debug\nunit.framework.dll
+c:\users\asarolia\documents\visual studio 2015\Projects\FillTSA\FillTSA\bin\Debug\WebDriver.dll
+c:\users\asarolia\documents\visual studio 2015\Projects\FillTSA\FillTSA\bin\Debug\WebDriver.Support.dll
+c:\users\asarolia\documents\visual studio 2015\Projects\FillTSA\FillTSA\bin\Debug\nunit.framework.xml
+c:\users\asarolia\documents\visual studio 2015\Projects\FillTSA\FillTSA\bin\Debug\WebDriver.xml
+c:\users\asarolia\documents\visual studio 2015\Projects\FillTSA\FillTSA\bin\Debug\WebDriver.Support.xml
+c:\users\asarolia\documents\visual studio 2015\Projects\FillTSA\FillTSA\obj\Debug\FillTSA.csprojResolveAssemblyReference.cache
+c:\users\asarolia\documents\visual studio 2015\Projects\FillTSA\FillTSA\obj\Debug\FillTSA.exe
+c:\users\asarolia\documents\visual studio 2015\Projects\FillTSA\FillTSA\obj\Debug\FillTSA.pdb

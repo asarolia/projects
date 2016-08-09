@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/MasterPage.master" %>
+
+<script runat="server">
+
+</script>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="Head" Runat="Server">
+    <asp:contentplaceholder id="HeadContent" runat="server"></asp:contentplaceholder>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $('#navigation').show(250);
+        });
+    </script>
+
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="Body" Runat="Server">
+    <div id="main" class="nosidebar">
+        <div id="sidebar"></div>
+        <div id="content">
+            <asp:contentplaceholder id="bodyContentPlaceholder" runat="server">
+            </asp:contentplaceholder>
+        </div>
+    </div>
+</asp:Content>

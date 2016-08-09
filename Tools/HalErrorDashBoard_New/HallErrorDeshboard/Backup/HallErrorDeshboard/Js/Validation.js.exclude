@@ -1,0 +1,24 @@
+﻿// JScript File
+function ValidateText()
+{
+        if(document.getElementById("txtLoginName").value == '' || document.getElementById("txtPass").value == '' || document.getElementById("txtLstNme").value == '' || document.getElementById("txtFstNme").value == '' || document.getElementById("txtEmail").value == '' || document.getElementById("txtLoginName").value == '' ||document.getElementById("drdAssystQueue").selectedIndex == 0 ||document.getElementById("drdInclInReporting").selectedIndex == 0 || document.getElementById("drdProfile").selectedIndex == 0)
+        {
+            alert("Enter Mandatory(*) fields");
+            return false;
+        }                                  
+}
+
+function ValidateProfile()
+{
+    if(document.getElementById("drdUsersList").value=="Select")
+    {
+        alert("Select a User from Dropdown");
+        return false;
+    }
+    if(document.getElementById("drdProfilesList").value=="Select")
+    {
+        alert("Select a Profile from Dropdown");
+        return false;
+    }
+}
+

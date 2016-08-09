@@ -1,0 +1,394 @@
+USE [Aviva_BNC_Earth]
+GO
+
+/****** Object:  Table [dbo].[Batch_Type]    Script Date: 02/06/2016 12:37:33 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Batch_Type](
+	[IP_Address] [nvarchar](50) NULL,
+	[Batch_Type] [varchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+
+****************************
+
+USE [Aviva_BNC_Earth]
+GO
+
+/****** Object:  Table [dbo].[BatchData]    Script Date: 02/06/2016 12:38:26 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[BatchData](
+	[Jobname] [char](10) NOT NULL,
+	[Start_Date] [datetime] NULL,
+	[Start_Time] [int] NULL,
+	[Error_Date] [datetime] NULL,
+	[Error_Time] [int] NULL,
+	[Error_Code] [char](5) NULL,
+	[Restart_Date] [datetime] NULL,
+	[Restart_Time] [int] NULL,
+	[End_Date] [datetime] NULL,
+	[End_Time] [int] NULL,
+	[Time_Lost] [int] NULL,
+	[Comment] [varchar](60) NULL,
+	[Job_Category] [char](10) NOT NULL,
+	[Job_Type] [char](10) NOT NULL,
+	[RecordDt] [datetime] NOT NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+*******************************************
+
+USE [Aviva_BNC_Earth]
+GO
+
+/****** Object:  Table [dbo].[BatchDataArchive]    Script Date: 02/06/2016 12:38:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[BatchDataArchive](
+	[Jobname] [char](10) NOT NULL,
+	[Start_Date] [datetime] NULL,
+	[Start_Time] [int] NULL,
+	[Error_Date] [datetime] NULL,
+	[Error_Time] [int] NULL,
+	[Error_Code] [char](5) NULL,
+	[Restart_Date] [datetime] NULL,
+	[Restart_Time] [int] NULL,
+	[End_Date] [datetime] NULL,
+	[End_Time] [int] NULL,
+	[Time_Lost] [int] NULL,
+	[Comment] [varchar](60) NULL,
+	[Job_Category] [char](10) NOT NULL,
+	[Job_Type] [char](10) NOT NULL,
+	[RecordDt] [datetime] NOT NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+USE [Aviva_BNC_Earth]
+GO
+
+/****** Object:  Table [dbo].[datatable]    Script Date: 02/06/2016 12:40:32 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[datatable](
+	[Type] [nchar](10) NOT NULL,
+	[Total] [int] NOT NULL,
+	[Processed] [int] NOT NULL,
+	[Unprocessed] [int] NOT NULL,
+	[Failed] [int] NOT NULL,
+	[RecordDt] [datetime] NOT NULL
+) ON [PRIMARY]
+
+GO
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+USE [Aviva_BNC_Earth]
+GO
+
+/****** Object:  Table [dbo].[datatableArchive]    Script Date: 02/06/2016 12:41:14 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[datatableArchive](
+	[Type] [nchar](10) NOT NULL,
+	[Total] [int] NOT NULL,
+	[Processed] [int] NOT NULL,
+	[Unprocessed] [int] NOT NULL,
+	[Failed] [int] NOT NULL,
+	[RecordDt] [datetime] NOT NULL
+) ON [PRIMARY]
+
+GO
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+USE [Aviva_BNC_Earth]
+GO
+
+/****** Object:  Table [dbo].[deferdata]    Script Date: 02/06/2016 12:41:41 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[deferdata](
+	[Time_Defer] [char](30) NOT NULL,
+	[Time_Run] [char](30) NOT NULL,
+	[Delay] [int] NOT NULL,
+	[RecordDt] [datetime] NOT NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+USE [Aviva_BNC_Earth]
+GO
+
+/****** Object:  Table [dbo].[deferdataArchive]    Script Date: 02/06/2016 12:42:19 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[deferdataArchive](
+	[Time_Defer] [char](30) NOT NULL,
+	[Time_Run] [char](30) NOT NULL,
+	[Delay] [int] NOT NULL,
+	[RecordDt] [datetime] NOT NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+USE [Aviva_BNC_Earth]
+GO
+
+/****** Object:  Table [dbo].[deferobjects]    Script Date: 02/06/2016 12:43:36 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[deferobjects](
+	[OBJECT] [char](10) NOT NULL,
+	[STATUS] [char](1) NOT NULL,
+	[Count] [int] NOT NULL,
+	[RecordDt] [datetime] NOT NULL,
+	[Time] [char](30) NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+USE [Aviva_BNC_Earth]
+GO
+
+/****** Object:  Table [dbo].[FeedData]    Script Date: 02/06/2016 12:46:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[FeedData](
+	[Feed_Type] [char](15) NOT NULL,
+	[Feed_Name] [varchar](40) NOT NULL,
+	[Processed] [int] NOT NULL,
+	[Success] [int] NOT NULL,
+	[Fail] [int] NOT NULL,
+	[RecordDt] [datetime] NOT NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+USE [Aviva_BNC_Earth]
+GO
+
+/****** Object:  Table [dbo].[FeedDataArchive]    Script Date: 02/06/2016 12:46:29 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[FeedDataArchive](
+	[Feed_Type] [char](15) NOT NULL,
+	[Feed_Name] [varchar](40) NOT NULL,
+	[Processed] [int] NOT NULL,
+	[Success] [int] NOT NULL,
+	[Fail] [int] NOT NULL,
+	[RecordDt] [datetime] NOT NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+USE [Aviva_BNC_Earth]
+GO
+
+/****** Object:  Table [dbo].[HalErr]    Script Date: 02/06/2016 12:47:04 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[HalErr](
+	[Error_Ref] [varchar](12) NOT NULL,
+	[Day_O_Count] [int] NOT NULL,
+	[Day_T_Count] [int] NOT NULL,
+	[Day_Th_Count] [int] NOT NULL,
+	[Fail_Pgm_Name] [varchar](15) NOT NULL,
+	[Fail_Para_Name] [varchar](50) NOT NULL,
+	[RecordDt] [datetime] NOT NULL,
+	[Day_Fo_Count] [int] NULL,
+	[Day_Fi_Count] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+++++++++++++++++++++++
+USE [Aviva_BNC_Earth]
+GO
+
+/****** Object:  Table [dbo].[HalErrArchive]    Script Date: 02/06/2016 12:47:35 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[HalErrArchive](
+	[Error_Ref] [varchar](12) NOT NULL,
+	[Day_O_Count] [int] NOT NULL,
+	[Day_T_Count] [int] NOT NULL,
+	[Day_Th_Count] [int] NOT NULL,
+	[Fail_Pgm_Name] [varchar](15) NOT NULL,
+	[Fail_Para_Name] [varchar](50) NOT NULL,
+	[RecordDt] [datetime] NOT NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+
+++++++++++++++++++++++++++++++++
+
+USE [Aviva_BNC_Earth]
+GO
+
+/****** Object:  Table [dbo].[limittable]    Script Date: 02/06/2016 12:48:45 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[limittable](
+	[Ttype] [nchar](10) NOT NULL,
+	[Failed_Threshold_Red] [int] NOT NULL,
+	[Unprocess_Threshold_Red] [int] NOT NULL,
+	[Failed_Threshold_Amber] [int] NOT NULL,
+	[Unprocess_Threshold_Amber] [int] NOT NULL,
+ CONSTRAINT [PK_limittable] PRIMARY KEY CLUSTERED 
+(
+	[Ttype] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+
++++++++++++++++++++++++++++++++++++
+
+
+
+
+

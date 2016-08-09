@@ -1,0 +1,54 @@
+<%@ Master Language="C#" AutoEventWireup="true" Inherits="System.Web.UI.MasterPage" EnableViewState="false" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+
+<head runat="server">
+    <title>Exceed Data Customisation utility</title>
+    <link rel="stylesheet" href="~/Images/StyleSheet.css" />
+    <link rel="stylesheet" href="~/Images/jquery-ui-1.8.4.css" />
+    <link rel="SHORTCUT ICON" href="../Images/logo.ico" />
+    
+	<script src='js/jquery/jquery-1.4.2.js' type="text/javascript"></script>
+	<script src='js/jquery/jquery.json2.js' type="text/javascript"></script>
+	<script src='js/jquery/jquery-ui-1.8.4.min.js' type="text/javascript"></script>
+	<script src='js/jquery/jquery.ui.datepicker-en-GB.js' type="text/javascript"></script>
+	<script src='js/jquery/jquery.maskedinput-1.2.2.js' type="text/javascript"></script>
+	<script src='js/jquery/jquery.tmpl.js' type="text/javascript"></script>
+	
+	
+    <asp:contentplaceholder id="Head" runat="server"></asp:contentplaceholder>
+    
+</head>
+
+<body>
+    <div id="header">
+        <h1>Exceed Utilities</h1>
+        <div id="main-menu">
+            <ul>
+                <li><a href="Welcome.aspx" id="aHome">Home</a></li>
+                <li><a href="CloneProposition.aspx" id="aCloneProposition">Clone Proposition</a></li>
+                <li><a href="DownloadProposition.aspx" id="aDownloadProposition">Download Proposition</a></li>
+<%--                <li><a href="Browse.aspx" id="aBrowse">Module Browser</a></li>
+--%>                
+                <li><a href="#" id="a1">Module Browser</a></li>
+                <li><a href="DataMigration.aspx" id="aMigration">RDX</a></li>
+
+       <%--         <li><a href="#" style="text-decoration:line-through;">Download Propostion</a></li>
+                <li><a href="#" style="text-decoration:line-through;">Edit Proposition</a></li>
+                <li><a href="#" style="text-decoration:line-through;">Review Propostion</a></li>
+                <li><a href="#" style="text-decoration:line-through;">Generate DML</a></li>--%>
+
+            </ul>
+        </div>
+    </div>
+    
+    <asp:contentplaceholder id="Body" runat="server">
+    </asp:contentplaceholder>
+        
+    <div id="footer">
+        Developed by CSC - for use in Exceed
+    </div>
+</body>
+</html>
