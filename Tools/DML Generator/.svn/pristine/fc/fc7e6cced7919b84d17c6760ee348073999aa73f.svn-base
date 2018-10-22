@@ -1,8 +1,0 @@
-input[type=file]::before{
-content: url('Images/button_select.gif');
-}
-
-.SheetInfo{ display:block; width:100%; border-bottom: grey dotted 1px;}
-.cellContent{width: 17%; display: inline-block; padding-left:1%; font-family:Monospace;}
-.warning{background: transparent url('images/warning.png') no-repeat -1px 0px; padding-left:16px;font-family:Monospace; color: Red;}
-.success{background: transparent url('images/success.png') no-repeat -1px 0px; padding-left:16px;font-family:Monospace;}
